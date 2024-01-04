@@ -1,5 +1,5 @@
-# 3D portfolio
-- this is an 3d-portfolio website of ashish bhoure (Me)
+# Portfolio
+- This is an 3d-portfolio website of ashish bhoure (Me)
 - Create using Reactjs , tellwindcss , three.js
 
 # React + Vite
