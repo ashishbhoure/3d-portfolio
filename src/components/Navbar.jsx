@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import resume from "../assets/Resume Ashish Bhoure.pdf";
 
 const Navbar = () => {
   return (
@@ -29,16 +30,19 @@ const Navbar = () => {
           {" "}
           Projects
         </NavLink>
-        {/* <NavLink
-          to="/projects"
+        <NavLink
+          to={resume}
+          color="transparent"
+          download="Ashish_Bhoure_Resume"
+          target="_blank"
           className={({ isActive }) =>
             isActive ? "text-blue-500" : "text-black"
           }
         >
           {" "}
-          Resume 
+          Resume
           <img src="" />
-        </NavLink> */}
+        </NavLink>
       </nav>
     </header>
   );
