@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import resume from "../assets/Resume Ashish Bhoure.pdf";
+import { download } from "../assets/icons";
 
 const Navbar = () => {
   return (
@@ -36,12 +37,18 @@ const Navbar = () => {
           download="Ashish_Bhoure_Resume"
           target="_blank"
           className={({ isActive }) =>
-            isActive ? "text-blue-500" : "text-black"
+            isActive
+              ? "text-blue-500 flex gap-0.5 items-center"
+              : "text-black flex gap-0.5 items-center"
           }
         >
           {" "}
           Resume
-          <img src="" />
+          <img
+            src={download}
+            alt="download"
+            className="w-5 h-5 object-contain"
+          />
         </NavLink>
       </nav>
     </header>

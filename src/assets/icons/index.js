@@ -33,8 +33,10 @@ import education from "./education.png";
 import cards from "./cards.png";
 import lab from "./lab.png";
 import car from "./car.png";
+import download from "./download.png";
 
 export {
+  download,
   food,
   cafe,
   education,

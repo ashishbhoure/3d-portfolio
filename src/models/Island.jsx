@@ -19,8 +19,11 @@ const Island = ({ isRotating, setIsRotating, setCurrentStage, ...props }) => {
     e.stopPropagation();
     e.preventDefault();
     setIsRotating(true);
+    console.log(e.touches);
 
     const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+    console.log(clientX + "cli");
+
     lastX.current = clientX;
   };
 
@@ -30,11 +33,11 @@ const Island = ({ isRotating, setIsRotating, setCurrentStage, ...props }) => {
     setIsRotating(false);
   };
 
-  const handlePointerMove = (e) => {
-    e.stopPropagation();
-    e.preventDefault();
+  const handlePointerMove = (event) => {
+    event.stopPropagation();
+    event.preventDefault();
     if (isRotating) {
-      const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+      const clientX = event.touches ? event.touches[0].clientX : event.clientX;
       const delta = (clientX - lastX.current) / viewport.width;
       islandRef.current.rotation.y = delta * 0.01 * Math.PI;
 
