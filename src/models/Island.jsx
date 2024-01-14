@@ -19,10 +19,10 @@ const Island = ({ isRotating, setIsRotating, setCurrentStage, ...props }) => {
     e.stopPropagation();
     e.preventDefault();
     setIsRotating(true);
-    console.log(e.touches);
+    // console.log(e.touches);
 
     const clientX = e.touches ? e.touches[0].clientX : e.clientX;
-    console.log(clientX + "cli");
+    // console.log(clientX + "cli");
 
     lastX.current = clientX;
   };
@@ -33,13 +33,13 @@ const Island = ({ isRotating, setIsRotating, setCurrentStage, ...props }) => {
     setIsRotating(false);
   };
 
-  const handlePointerMove = (event) => {
-    event.stopPropagation();
-    event.preventDefault();
+  const handlePointerMove = (e) => {
+    e.stopPropagation();
+    e.preventDefault();
     if (isRotating) {
-      const clientX = event.touches ? event.touches[0].clientX : event.clientX;
+      const clientX = e.touches ? e.touches[0].clientX : e.clientX;
       const delta = (clientX - lastX.current) / viewport.width;
-      islandRef.current.rotation.y = delta * 0.01 * Math.PI;
+      islandRef.current.rotation.y += delta * 0.01 * Math.PI;
 
       lastX.current = clientX;
       rotationSpeed.current = delta * 0.01 * Math.PI;
