@@ -25,9 +25,9 @@ const Projects = () => {
           and expertise to craft unique and impactful software experiences.
         </p>
       </div>
-      <div className="flex flex-wrap mt-10 mr-20 mb-5 gap-16">
+      <div className="flex flex-wrap justify-center mt-10  mb-5 gap-16">
         {projects.map((project) => (
-          <div className="lg:w-[375px] w-full" key={project.name}>
+          <div className="lg:w-[380px] w-full" key={project.name}>
             <div className="block-container w-12 h-12">
               <div className={`btn-back rounded-xl ${project.theme}`} />
               <div className="btn-front rounded-xl flex justify-center items-center">
