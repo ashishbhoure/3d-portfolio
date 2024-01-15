@@ -14,7 +14,7 @@ const Projects = () => {
         </span>{" "}
       </h1>
 
-      <div className="mt-5 flex flex-col gap-3 text-slate-500">
+      <div className="mt-5 flex flex-col gap-3 text-slate-500 text-justify">
         <p>
           As a seasoned software developer, I've successfully delivered a
           multitude of awe-inspiring projects, each a testament to my passion
@@ -38,11 +38,13 @@ const Projects = () => {
                 />
               </div>
             </div>
-            <div className="mt-5 flex flex-col">
+            <div className="mt-5 flex flex-col ">
               <h4 className="text-2xl font-poppins font-semibold">
                 {project.name}
               </h4>
-              <p className="mt-2 text-slate-500">{project.description}</p>
+              <p className="mt-2 text-justify text-slate-500">
+                {project.description}
+              </p>
               <div className="mt-5 flex items-center gap-2 font-poppins">
                 <Link
                   to={project.link}
