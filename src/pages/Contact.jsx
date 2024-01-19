@@ -7,7 +7,7 @@ import useAlert from "../hooks/useAlert";
 import Alert from "../components/Alert";
 
 const Contact = () => {
-  const formRef = useRef(null);
+  // const formRef = useRef(null);
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [isLoading, setIsLoading] = useState(false);
   const [currentAnimation, setCurrentAnimation] = useState("idle");
@@ -65,7 +65,10 @@ const Contact = () => {
   const handleFocus = () => setCurrentAnimation("walk");
   const handleBlur = () => setCurrentAnimation("idle");
   return (
-    <section className="reletive top-10 flex lg:flex-row flex-col max-container">
+    <section
+      // onLoad="window.scroll(0)"
+      className="reletive top-10 flex lg:flex-row flex-col max-container"
+    >
       {alert.show && <Alert {...alert} />}
       <div className="flex-1 min-w-[50%] flex flex-col">
         <h1 className="head-text">Get In Touch</h1>

@@ -209,6 +209,7 @@ export const projects = [
     description:
       "Engineered a resilient food delivery app featuring secure user authentication and seamless ordering, utilizing the MERN stack (React.js, MongoDB, Express.js, Node.js).",
     link: "https://github.com/ashishbhoure/MERN_Project_foodies",
+    linkTag: "GitHub Link",
   },
   {
     iconUrl: cafe,
@@ -217,6 +218,7 @@ export const projects = [
     description:
       "Architected and deployed a streamlined cafe management system using the MERN stack (React.js, MongoDB, Express.js, Node.js), enhancing daily customer order processes and operational efficiency.",
     link: "https://github.com/ochhanejay/ckn_management",
+    linkTag: "GitHub Link",
   },
   {
     iconUrl: education,
@@ -225,6 +227,7 @@ export const projects = [
     description:
       "Crafted an intuitive and user-friendly interface, ensuring effortless navigation and seamless access to a diverse educational resource library using React.js, CSS, and Bootstrap",
     link: "https://www.studychampionacademy.com",
+    linkTag: "Live Link",
   },
   {
     iconUrl: lab,
@@ -233,6 +236,7 @@ export const projects = [
     description:
       "Empowered users to seamlessly explore various labs, each equipped with distinct resources, by selecting from a curated list. Detailed information about each lab is accessible, and administrators have the capability to create new labs using HTML, PHP, JavaScript, and Bootstrap.",
     link: "https://github.com/ashishbhoure/armour_labs",
+    linkTag: "GitHub Link",
   },
   {
     iconUrl: cards,
@@ -241,6 +245,7 @@ export const projects = [
     description:
       "Engineered a multiplayer card game with a user-friendly interface, ensuring ease of use, using React Native as the development framework.",
     link: "https://github.com/ashishbhoure/21CardGame",
+    linkTag: "GitHub Link",
   },
   {
     iconUrl: car,
@@ -249,5 +254,6 @@ export const projects = [
     description:
       "Designed an AI-based application that intelligently detects a driver's state, distinguishing between drowsy, sleepy, and active states, contributing to enhanced road safety.",
     link: "https://github.com/ashishbhoure/Driver_Drowsiness_Detection",
+    linkTag: "GitHub Link",
   },
 ];

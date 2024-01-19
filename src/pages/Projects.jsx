@@ -52,7 +52,7 @@ const Projects = () => {
                   rel="noopener noreferrer"
                   className="font-semibold test-blue-600"
                 >
-                  Live Link
+                  {project.linkTag}
                 </Link>
                 <img
                   src={arrow}

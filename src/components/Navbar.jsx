@@ -5,7 +5,7 @@ import { download } from "../assets/icons";
 
 const Navbar = () => {
   return (
-    <header className="header ">
+    <header className="header snap-start">
       <NavLink
         to="/"
         className="w-20 h-10 rounded-lg bg-white items-center justify-center flex font-bold shadow-md"
