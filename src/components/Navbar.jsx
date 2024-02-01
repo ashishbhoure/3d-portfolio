@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import resume from "../assets/Resume Ashish Bhoure.pdf";
-import { download } from "../assets/icons";
+// import resume from "../assets/Resume Ashish Bhoure.pdf";
+// import { download } from "../assets/icons";
 
 const Navbar = () => {
   return (
@@ -32,6 +32,15 @@ const Navbar = () => {
           Projects
         </NavLink>
         <NavLink
+          to="/resume"
+          className={({ isActive }) =>
+            isActive ? "text-blue-500" : "text-black"
+          }
+        >
+          {" "}
+          Resume
+        </NavLink>
+        {/* <NavLink
           to={resume}
           color="transparent"
           download="Ashish_Bhoure_Resume"
@@ -49,7 +58,7 @@ const Navbar = () => {
             alt="download"
             className="w-5 h-5 object-contain"
           />
-        </NavLink>
+        </NavLink> */}
       </nav>
     </header>
   );
