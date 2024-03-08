@@ -2,9 +2,9 @@ import React from "react";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import "./index.css";
 import Navbar from "./components/Navbar";
-import { Home, About, Projects, Contact } from "./pages";
+import { Home, About, Projects, Contact, Resume } from "./pages";
 import Footer from "./components/Footer";
-import Resume from "./pages/Resume";
+// import Resume from "./pages/Resume";
 
 const App = () => {
   return (
