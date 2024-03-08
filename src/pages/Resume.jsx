@@ -56,7 +56,7 @@ export default function Resume() {
         />
       </Link>
       <hr className="mt-5 border-slate-200" />
-      <CTA />
+      {/* <CTA /> */}
     </section>
   );
 }
