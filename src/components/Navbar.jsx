@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import logo from "../assets/logoAB.png";
 // import resume from "../assets/Resume Ashish Bhoure.pdf";
 // import { download } from "../assets/icons";
 
@@ -8,9 +9,10 @@ const Navbar = () => {
     <header className="header snap-start">
       <NavLink
         to="/"
-        className="w-20 h-10 rounded-lg bg-white items-center justify-center flex font-bold shadow-md"
+        className="w-25 h-10 rounded-lg bg-white items-center justify-center flex font-bold shadow-md"
       >
-        <p className="blue-gradient_text">ASHISH</p>
+        <img src={logo} alt="logo" className="w-8 h-auto" />
+        <p className="blue-gradient_text hidden sm:block ">ASHISH</p>
       </NavLink>
       <nav className="flex text-lg gap-7 font-medium">
         <NavLink
