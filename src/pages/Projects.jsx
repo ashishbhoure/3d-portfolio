@@ -14,18 +14,18 @@ const Projects = () => {
           Projects
         </span>{" "}
       </h1>
+      <div className="mt-5 flex flex-col gap-3 text-slate-500 text-justify">
+        <p>
+          As a seasoned software developer, I've successfully delivered a
+          multitude of awe-inspiring projects, each a testament to my passion
+          for innovation. Engaging in both freelance ventures and corporate
+          collaborations, I thrive on creating cutting-edge solutions that
+          seamlessly integrate diverse technologies. My portfolio is a
+          reflection of my commitment to excellence, where I bring creativity
+          and expertise to craft unique and impactful software experiences.
+        </p>
+      </div>
       <ScrollAnimation>
-        <div className="mt-5 flex flex-col gap-3 text-slate-500 text-justify">
-          <p>
-            As a seasoned software developer, I've successfully delivered a
-            multitude of awe-inspiring projects, each a testament to my passion
-            for innovation. Engaging in both freelance ventures and corporate
-            collaborations, I thrive on creating cutting-edge solutions that
-            seamlessly integrate diverse technologies. My portfolio is a
-            reflection of my commitment to excellence, where I bring creativity
-            and expertise to craft unique and impactful software experiences.
-          </p>
-        </div>
         <div className="flex flex-wrap justify-center mt-10  mb-5 gap-16">
           {projects.map((project) => (
             <div className="lg:w-[380px] w-full" key={project.name}>

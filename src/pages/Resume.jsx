@@ -8,12 +8,12 @@ import CTA from "../components/CTA";
 
 // pdfjs.GlobalWorkerOptions.workerSrc = "pdf.worker.min.js";
 export default function Resume() {
-  const [numPages, setNumPages] = useState(null); // Initialize numPages state to null
-  const [pageNumber, setPageNumber] = useState(1);
+  // const [numPages, setNumPages] = useState(null); // Initialize numPages state to null
+  // const [pageNumber, setPageNumber] = useState(1);
 
-  function onDocumentLoadSuccess({ numPages }) {
-    setNumPages(numPages);
-  }
+  // function onDocumentLoadSuccess({ numPages }) {
+  //   setNumPages(numPages);
+  // }
   return (
     <section className="max-container">
       {/* <h1>REsume</h1> */}
@@ -21,7 +21,7 @@ export default function Resume() {
         to={resume}
         download="Ashish_Bhoure_Resume"
         target="_blank"
-        className=" w-1/4 h-10 m-auto rounded-lg bg-gradient-to-r from-blue-400 to-sky-300  items-center flex font-bold shadow-md  justify-around  "
+        className=" w-1/4 h-10 sm:w-1/3 m-auto rounded-lg bg-gradient-to-r from-blue-400 to-sky-300  items-center flex font-bold shadow-md  justify-around  "
       >
         Download RESUME
         <img
@@ -46,7 +46,7 @@ export default function Resume() {
         to={resume}
         download="Ashish_Bhoure_Resume"
         target="_blank"
-        className="mt-5 m-auto w-1/4 h-10 rounded-lg bg-gradient-to-r from-blue-400 to-sky-300 items-center justify-center flex font-bold shadow-md"
+        className="mt-5 m-auto w-1/4 sm:w-1/3 h-10 rounded-lg bg-gradient-to-r from-blue-400 to-sky-300 items-center justify-center flex font-bold shadow-md"
       >
         Download RESUME
         <img
