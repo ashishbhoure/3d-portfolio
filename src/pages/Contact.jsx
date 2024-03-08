@@ -5,6 +5,7 @@ import Fox from "../models/Fox";
 import Loader from "../components/Loader";
 import useAlert from "../hooks/useAlert";
 import Alert from "../components/Alert";
+import ScrollAnimation from "../components/ScrollAnimation";
 
 const Contact = () => {
   // const formRef = useRef(null);
@@ -70,6 +71,7 @@ const Contact = () => {
       className="reletive top-10 flex lg:flex-row flex-col max-container"
     >
       {alert.show && <Alert {...alert} />}
+      {/* <ScrollAnimation> */}
       <div className="flex-1 min-w-[50%] flex flex-col">
         <h1 className="head-text">Get In Touch</h1>
 
@@ -130,6 +132,8 @@ const Contact = () => {
           </button>
         </form>
       </div>
+      {/* </ScrollAnimation> */}
+      {/* <ScrollAnimation> */}
       <div className="lg:w-1/2 w-full lg:h-auto md:h-[550px] h-[350px]">
         <Canvas camera={{ position: [0, 0, 5], fov: 75, near: 0.1, far: 1000 }}>
           <directionalLight intensity={2.5} position={[0, 0, 1]} />
@@ -144,6 +148,7 @@ const Contact = () => {
           </Suspense>
         </Canvas>
       </div>
+      {/* </ScrollAnimation> */}
     </section>
   );
 };

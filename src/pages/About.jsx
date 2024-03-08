@@ -7,6 +7,7 @@ import {
 import "react-vertical-timeline-component/style.min.css";
 import { skills, experiences } from "../constants";
 import CTA from "../components/CTA";
+import ScrollAnimation from "../components/ScrollAnimation";
 
 const About = () => {
   return (
@@ -17,35 +18,35 @@ const About = () => {
           Ashish
         </span>{" "}
       </h1>
+      <ScrollAnimation>
+        <div className="mt-5 flex flex-col gap-3 text-slate-500">
+          <p>
+            Passionate software developer with a flair for crafting robust and
+            scalable solutions. Proficient in full-stack development, I
+            specialize in creating innovative applications that blend
+            cutting-edge technology with a keen eye for user experience.
+          </p>
 
-      <div className="mt-5 flex flex-col gap-3 text-slate-500">
-        <p>
-          Passionate software developer with a flair for crafting robust and
-          scalable solutions. Proficient in full-stack development, I specialize
-          in creating innovative applications that blend cutting-edge technology
-          with a keen eye for user experience.
-        </p>
+          <div className="py-10 flex flex-col">
+            <h3 className="subhead-text ">My Skills</h3>
 
-        <div className="py-10 flex flex-col">
-          <h3 className="subhead-text ">My Skills</h3>
-
-          <div className="mt-16 flex flex-wrap gap-12 justify-center">
-            {skills.map((skill) => (
-              <div className="block-container w-20 h-20">
-                <div className="btn-back rounded-xl" />
-                <div className="btn-front rounded-xl flex justify-center items-center">
-                  <img
-                    src={skill.imageUrl}
-                    alt={skill.name}
-                    className="w-1/2 h-1/2 object.contain"
-                  />
+            <div className="mt-16 flex flex-wrap gap-12 justify-center">
+              {skills.map((skill) => (
+                <div className="block-container w-20 h-20">
+                  <div className="btn-back rounded-xl" />
+                  <div className="btn-front rounded-xl flex justify-center items-center">
+                    <img
+                      src={skill.imageUrl}
+                      alt={skill.name}
+                      className="w-1/2 h-1/2 object.contain"
+                    />
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
 
-        {/* <div className="py-16 ">
+          {/* <div className="py-16 ">
           <h3 className="subhead-text">Work Experience</h3>
           <div className="mt-5 flex flex-col gap-3 text-slate-500">
             <p>
@@ -105,7 +106,8 @@ const About = () => {
             </VerticalTimeline>
           </div>
         </div> */}
-      </div>
+        </div>
+      </ScrollAnimation>
       <hr className="border-slate-200" />
       <CTA />
     </section>
