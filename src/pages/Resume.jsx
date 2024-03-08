@@ -21,7 +21,7 @@ export default function Resume() {
         to={resume}
         download="Ashish_Bhoure_Resume"
         target="_blank"
-        className=" w-1/4 h-10 max-sm:w-1/2 m-auto rounded-lg bg-gradient-to-r from-blue-400 to-sky-300  items-center flex font-bold shadow-md  justify-around  "
+        className=" w-1/4 h-10 p-5 max-sm:w-1/2 m-auto rounded-lg bg-gradient-to-r from-blue-400 to-sky-300  items-center flex font-bold shadow-md  justify-center  "
       >
         Download RESUME
         <img
@@ -46,7 +46,7 @@ export default function Resume() {
         to={resume}
         download="Ashish_Bhoure_Resume"
         target="_blank"
-        className="mt-5 m-auto w-1/4 max-sm:w-1/2 h-10 rounded-lg bg-gradient-to-r from-blue-400 to-sky-300 items-center justify-center flex font-bold shadow-md"
+        className="mt-5 p-5 m-auto w-1/4 max-sm:w-1/2 h-10 rounded-lg bg-gradient-to-r from-blue-400 to-sky-300 items-center justify-center flex font-bold shadow-md"
       >
         Download RESUME
         <img
