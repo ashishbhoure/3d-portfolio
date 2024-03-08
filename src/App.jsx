@@ -17,6 +17,10 @@ const App = () => {
           name="description"
           content="Ashish Bhoure's portfolio showcases innovative software solutions crafted with precision and creativity."
         />
+        <meta
+          name="keywords"
+          content="portfolio,Software developer,Web development,Mobile app development,Frontend development,Backend development,Full-stack development,JavaScript,React.js, Node.js, Python, Django,HTML5,CSS3,Responsive design,Portfolio projects,Client projects,java"
+        />
       </Helmet>
       <Navbar />
       <main className="bg-slate-300/20 h-[100%] scroll-smooth">

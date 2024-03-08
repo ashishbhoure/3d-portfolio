@@ -8,10 +8,20 @@ import "react-vertical-timeline-component/style.min.css";
 import { skills, experiences } from "../constants";
 import CTA from "../components/CTA";
 import ScrollAnimation from "../components/ScrollAnimation";
+import { Helmet } from "react-helmet";
 
 const About = () => {
   return (
     <section className="max-container">
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>About - Ashish Bhoure</title>
+        <meta
+          name="description"
+          content="Passionate software developer with a flair for crafting robust and scalable solutions. Proficient in full-stack development."
+        />
+        {/* <link rel="canonical" href="http://mysite.com/example" /> */}
+      </Helmet>
       <h1 className="head-text">
         Hello, I'm{" "}
         <span className="blue-gradient_text font-semibold drop-shadow">

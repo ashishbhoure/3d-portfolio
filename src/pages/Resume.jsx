@@ -5,6 +5,7 @@ import { download } from "../assets/icons";
 import { Link } from "react-router-dom";
 import { Document, Page } from "react-pdf";
 import CTA from "../components/CTA";
+import { Helmet } from "react-helmet";
 
 // pdfjs.GlobalWorkerOptions.workerSrc = "pdf.worker.min.js";
 export default function Resume() {
@@ -16,6 +17,12 @@ export default function Resume() {
   // }
   return (
     <section className="max-container">
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Resume - Ashish Bhoure</title>
+        <meta name="description" content="See the Achivment into my Resume" />
+        {/* <link rel="canonical" href="http://mysite.com/example" /> */}
+      </Helmet>
       {/* <h1>REsume</h1> */}
       <Link
         to={resume}

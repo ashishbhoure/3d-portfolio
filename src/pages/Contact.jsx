@@ -6,6 +6,7 @@ import Loader from "../components/Loader";
 import useAlert from "../hooks/useAlert";
 import Alert from "../components/Alert";
 import ScrollAnimation from "../components/ScrollAnimation";
+import { Helmet } from "react-helmet";
 
 const Contact = () => {
   // const formRef = useRef(null);
@@ -70,6 +71,12 @@ const Contact = () => {
       // onLoad="window.scroll(0)"
       className="reletive top-10 flex lg:flex-row flex-col max-container"
     >
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Contact - Ashish Bhoure</title>
+        <meta name="description" content="Get in touch with Ashish Bhoure" />
+        {/* <link rel="canonical" href="http://mysite.com/example" /> */}
+      </Helmet>
       {alert.show && <Alert {...alert} />}
       {/* <ScrollAnimation> */}
       <div className="flex-1 min-w-[50%] flex flex-col">

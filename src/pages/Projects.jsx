@@ -4,10 +4,20 @@ import { Link } from "react-router-dom";
 import { arrow } from "../assets/icons";
 import CTA from "../components/CTA";
 import ScrollAnimation from "../components/ScrollAnimation";
+import { Helmet } from "react-helmet";
 
 const Projects = () => {
   return (
     <section className="max-container">
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Project - Ashish Bhoure</title>
+        <meta
+          name="description"
+          content="I've successfully delivered a multitude of awe-inspiring projects, each a testament to my passion for innovation."
+        />
+        {/* <link rel="canonical" href="http://mysite.com/example" /> */}
+      </Helmet>
       <h1 className="head-text">
         My{" "}
         <span className="blue-gradient_text font-semibold drop-shadow">
