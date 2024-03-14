@@ -68,7 +68,7 @@ const Home = () => {
       <Helmet>
         <meta charSet="utf-8" />
         <title>Ashish Bhoure | Portfolio</title>
-        <meta name="google-adsense-account" content="ca-pub-1210200290803283">
+        <meta name="google-adsense-account" content="ca-pub-1210200290803283"/>
         {/* <link rel="canonical" href="http://mysite.com/example" /> */}
       </Helmet>
       <div className="absolute top-28 left-0 right-0 z-10 flex items-center justify-center">
