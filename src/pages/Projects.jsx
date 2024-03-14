@@ -16,6 +16,7 @@ const Projects = () => {
           name="description"
           content="I've successfully delivered a multitude of awe-inspiring projects, each a testament to my passion for innovation."
         />
+        <meta name="google-adsense-account" content="ca-pub-1210200290803283"/>
         {/* <link rel="canonical" href="http://mysite.com/example" /> */}
       </Helmet>
       <h1 className="head-text">
