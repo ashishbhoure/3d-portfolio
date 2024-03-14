@@ -75,6 +75,7 @@ const Contact = () => {
         <meta charSet="utf-8" />
         <title>Contact - Ashish Bhoure</title>
         <meta name="description" content="Get in touch with Ashish Bhoure" />
+        <meta name="google-adsense-account" content="ca-pub-1210200290803283">
         {/* <link rel="canonical" href="http://mysite.com/example" /> */}
       </Helmet>
       {alert.show && <Alert {...alert} />}
