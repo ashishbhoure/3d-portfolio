@@ -21,6 +21,7 @@ export default function Resume() {
         <meta charSet="utf-8" />
         <title>Resume - Ashish Bhoure</title>
         <meta name="description" content="See the Achivment into my Resume" />
+        <meta name="google-adsense-account" content="ca-pub-1210200290803283"/>
         {/* <link rel="canonical" href="http://mysite.com/example" /> */}
       </Helmet>
       {/* <h1>REsume</h1> */}
