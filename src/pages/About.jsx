@@ -16,6 +16,7 @@ const About = () => {
       <Helmet>
         <meta charSet="utf-8" />
         <title>About - Ashish Bhoure</title>
+        <meta name="google-adsense-account" content="ca-pub-1210200290803283">
         <meta
           name="description"
           content="Passionate software developer with a flair for crafting robust and scalable solutions. Proficient in full-stack development."
