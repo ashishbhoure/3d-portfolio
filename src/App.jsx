@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar";
 import { Home, About, Projects, Contact, Resume } from "./pages";
 import Footer from "./components/Footer";
 import { Helmet } from "react-helmet";
+import Main from "./pages/Main";
 // import Resume from "./pages/Resume";
 
 const App = () => {
@@ -43,6 +44,7 @@ const App = () => {
               </>
             }
           />
+          <Route path="/main" element={<Main />} /> 
         </Routes>
       </main>
     </Router>
