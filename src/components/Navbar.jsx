@@ -9,7 +9,7 @@ const Navbar = () => {
     <header className="header snap-start">
       <NavLink
         to="/"
-        className="w-25 h-10 rounded-lg bg-white items-center justify-center flex font-bold shadow-md"
+        className="w-25 h-10 rounded-lg px-2 max-sm:px-0 bg-white items-center justify-center flex font-bold shadow-md"
       >
         <img src={logo} alt="logo" className="w-8 h-auto" />
         <p className="blue-gradient_text hidden sm:block ">ASHISH</p>
