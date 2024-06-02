@@ -24,9 +24,9 @@ const App = () => {
         />
       </Helmet>
       <Navbar />
-      <main className="bg-slate-300/20 h-[100%] scroll-smooth">
+      <main className="group bg-slate-300/20 h-[100%] scroll-smooth">
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Main />} />
           {/* <Route path="/about" element={<About />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/contact" element={<Contact />} /> */}
@@ -44,7 +44,7 @@ const App = () => {
               </>
             }
           />
-          <Route path="/main" element={<Main />} /> 
+          <Route path="/home" element={<Home />} />
         </Routes>
       </main>
     </Router>

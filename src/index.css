@@ -181,3 +181,65 @@ body:has(.card[data-color="green"]:hover) {
   box-shadow: 0.6vmin 0.6vmin #fff, 1vmin 1vmin #d2e4ff, 1vmin 1vmin #d2e4ff,
     0.65vmin 1vmin #d2e4ff, 1vmin 0.65vmin #d2e4ff;
 }
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-250px * 7));
+  }
+}
+
+/* // Styling */
+.slider {
+  /* background: white; */
+  /* box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.125); */
+  /* height: 200px; */
+  margin: auto;
+  overflow: hidden;
+  position: relative;
+  /* width: 960px; */
+}
+
+.slider::before,
+.slider::after {
+  /* white-gradient; */
+  content: "";
+  /* height: 150px; */
+  position: absolute;
+  /* width: 200px; */
+  z-index: 2;
+}
+
+.slider::after {
+  right: 0;
+  top: 0;
+  transform: rotateZ(180deg);
+}
+
+.slider::before {
+  left: 0;
+  top: 0;
+}
+
+.slide-track {
+  animation: scroll 40s linear infinite;
+  display: flex;
+  width: calc(250px * 14);
+}
+
+.slide {
+  height: auto;
+  width: 150px;
+}
+
+
+@keyframes pulse {
+  50% {
+    opacity: 0.92;
+  }
+}
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.6, 0, 0.8, 1) infinite;
+}
