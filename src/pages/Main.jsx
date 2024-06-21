@@ -6,6 +6,41 @@ import { Link } from "react-router-dom";
 import Slider from "../components/Slider";
 
 const Main = () => {
+  const skills = [
+    "HTML",
+    "CSS",
+    "JavaScript",
+    "jQuery",
+    "Bootstarp",
+    "Tailwind CSS",
+    "PHP",
+    "MERN Stack",
+    "MongoDB",
+    "Express",
+    "React",
+    "Node.js",
+    "Redux",
+    "Next.js",
+    "SQL",
+    "NoSQL",
+    "MySQL",
+    "Firebase",
+    "React Native",
+    "TypeScript",
+    "RESTful APIs",
+    "Postman",
+    "JSON",
+    "JAVA",
+    "CPP",
+    "PYTHON",
+    "DOCKER",
+    "Git",
+    "GitHub",
+    "GitLab",
+    "AWS",
+    "Deployment",
+  ];
+
   return (
     <section className="group-bg-white justify-center items-center p-3 mt-[6%] w-[90%] m-auto overflow-x-hidden">
       <Helmet>
@@ -32,12 +67,12 @@ const Main = () => {
 
         <div class=" bg-[#d9f6ff] rounded-lg w-2/3 max-sm:w-auto p-10 max-sm:p-5 items-center text-justify text-lg flex">
           <p>
-            As an experienced software developer, I've completed many impressive
-            projects, showcasing my passion for innovation. I work in both
-            freelance and corporate settings, creating advanced solutions that
-            integrate various technologies. My portfolio reflects my commitment
-            to excellence, creativity, and expertise in delivering unique
-            software experiences.
+            I'm passionate about creating innovative solutions and delivering
+            great results. I rise to the challenge because I have a strong
+            background in web and app development. I have the ability to learn
+            and adapt to new technology and skills. I am known for my hard work,
+            dedication, and ability to meet deadlines. I am passionate about my
+            job, go to every job with enthusiasm and strive to be good.
           </p>
         </div>
       </div>
@@ -68,12 +103,23 @@ const Main = () => {
             <Link
               className="font-bold hover:font-poppins hover:text-[#2B77E7]"
               to="/contact"
-            > 
+            >
               Connect With Me
             </Link>
           </div>
         </div>
-        <div class="max-sm:w-auto w-2/3 rounded-lg col-span-2 bg-slate-700">
+        <div class="max-sm:w-auto flex flex-wrap p-5 w-2/3 rounded-lg col-span-2 bg-slate-700">
+          {skills.map((skill) => {
+            return (
+              <>
+                <span class="text-s font-medium me-2 px-2.5 py-0.5 rounded  text-gray-300">
+                  {skill}
+                </span>
+                <span>| </span>
+              </>
+            );
+          })}
+
           {/* <span class="bg-blue-100 text-blue-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">
             Default
           </span>
