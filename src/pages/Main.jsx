@@ -42,7 +42,7 @@ const Main = () => {
   ];
 
   return (
-    <section className="group-bg-white justify-center items-center p-3 mt-[6%] w-[90%] m-auto overflow-x-hidden">
+    <section className="max-w-8xl mx-auto max-sm:p-5  !pt-[100px] px-16 min-h-[calc(100vh-80px)] ">
       <Helmet>
         <meta charSet="utf-8" />
         <title>PortFolio - Ashish Bhoure</title>
@@ -54,7 +54,7 @@ const Main = () => {
         {/* <link rel="canonical" href="http://mysite.com/example" /> */}
       </Helmet>
 
-      <div className="flex gap-4 max-sm:flex max-sm:flex-col max-sm:mt-10">
+      <div className="flex gap-4 max-sm:flex max-sm:flex-col max-sm:mt-10 ">
         <div class="max-sm:w-auto w-1/3 flex justify-center items-center">
           <img
             src={ashi1}

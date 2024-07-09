@@ -27,9 +27,6 @@ const App = () => {
       <main className="group bg-slate-300/20 h-[100%] scroll-smooth">
         <Routes>
           <Route path="/" element={<Main />} />
-          {/* <Route path="/about" element={<About />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/contact" element={<Contact />} /> */}
           <Route
             path="/*"
             element={
