@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import resume from "../assets/Resume Ashish Bhoure.pdf";
-import resumeImg from "../assets/Resume Ashish Bhoure.jpg";
+import resumeImg from "../assets/Ashish Bhoure Resume.jpg";
 import { download } from "../assets/icons";
 import { Link } from "react-router-dom";
 import { Document, Page } from "react-pdf";
