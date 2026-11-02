@@ -1,26 +1,45 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/src/assets/logoAB.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="google-site-verification"
-      content="doYXKfFOnX2JBtv2ere2pCnGIxc8oS3M3K9Jp9VskFA"
-    />
-    
+    <title>Ashish Bhoure, full-stack developer</title>
     <meta
       name="description"
-      content="Ashish Bhoure's portfolio showcases innovative software solutions crafted with precision and creativity."
+      content="Ashish Bhoure builds Windows tools, web apps and the servers behind them. Projects include Lumishot, RepoAtlas and Skillverse."
     />
-    <meta name="google-adsense-account" content="ca-pub-1210200290803283"/>
-    <title>Ashish Bhoure | Portfolio</title>
-    
+    <meta name="google-site-verification" content="doYXKfFOnX2JBtv2ere2pCnGIxc8oS3M3K9Jp9VskFA" />
+    <meta name="theme-color" content="#e8ebef" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#141824" media="(prefers-color-scheme: dark)" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Ashish Bhoure, full-stack developer" />
+    <meta
+      property="og:description"
+      content="Windows tools, web apps and the servers behind them."
+    />
+    <meta name="twitter:card" content="summary" />
+
+    <link rel="icon" type="image/png" href="/src/assets/logoAB.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Apply the saved theme before first paint to avoid a flash. -->
+    <script>
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) t = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        document.documentElement.dataset.theme = t;
+      } catch (e) {}
+    </script>
   </head>
   <body>
     <div id="root"></div>
+    <noscript>Ashish Bhoure, full-stack developer. Email ashishbhoure@gmail.com.</noscript>
     <script type="module" src="/src/main.jsx"></script>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1210200290803283"
-     crossorigin="anonymous"></script>
   </body>
 </html>

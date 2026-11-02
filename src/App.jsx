@@ -1,51 +1,69 @@
-import React from "react";
-import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
-import "./index.css";
-import Navbar from "./components/Navbar";
-import { Home, About, Projects, Contact, Resume } from "./pages";
-import Footer from "./components/Footer";
-import { Helmet } from "react-helmet";
-import Main from "./pages/Main";
-// import Resume from "./pages/Resume";
+import Nav from "./components/Nav";
+import Hero from "./components/Hero";
+import { Work, Collaborations, Archive, Experience, Skills } from "./components/Sections";
+import Contact from "./components/Contact";
+import portrait from "./assets/ashish.webp";
+import { profile } from "./data";
 
-const App = () => {
+function About() {
   return (
-    <Router>
-      <Helmet>
-        <meta charSet="utf-8" />
-        <title>Ashish Bhoure | Portfolio</title>
-        <meta
-          name="description"
-          content="Ashish Bhoure's portfolio showcases innovative software solutions crafted with precision and creativity."
-        />
-        <meta
-          name="keywords"
-          content="portfolio,Software developer,Web development,Mobile app development,Frontend development,Backend development,Full-stack development,JavaScript,React.js, Node.js, Python, Django,HTML5,CSS3,Responsive design,Portfolio projects,Client projects,java"
-        />
-      </Helmet>
-      <Navbar />
-      <main className="group bg-slate-300/20 h-[100%] scroll-smooth">
-        <Routes>
-          <Route path="/" element={<Main />} />
-          <Route
-            path="/*"
-            element={
-              <>
-                <Routes>
-                  <Route path="/about" element={<About />} />
-                  <Route path="/projects" element={<Projects />} />
-                  <Route path="/contact" element={<Contact />} />
-                  <Route path="/resume" element={<Resume />} />
-                </Routes>
-                <Footer />
-              </>
-            }
-          />
-          <Route path="/home" element={<Home />} />
-        </Routes>
-      </main>
-    </Router>
+    <section className="section about" aria-labelledby="about-title">
+      <img className="about-photo" src={portrait} alt="Ashish Bhoure" width="600" height="832" loading="lazy" />
+      <div>
+        <h2 id="about-title">About me</h2>
+        <p>
+          I like small, sharp tools: a screenshot app that saves ten clicks, a converter that lives in
+          the right-click menu, a search page that answers the question you actually had. Most of my
+          work is TypeScript end to end, React on the front, Node on the back, Electron when it needs
+          to live on the desktop.
+        </p>
+        <p>
+          Since 2023 I have been freelancing, building web apps and admin panels for small businesses
+          and shipping my own products alongside. I finished an integrated M.Tech in Information
+          Technology at DAVV, Indore in 2025.
+        </p>
+      </div>
+    </section>
   );
-};
+}
 
-export default App;
+function Footer() {
+  return (
+    <footer className="footer">
+      <p>© {new Date().getFullYear()} Ashish Bhoure</p>
+      <ul>
+        <li>
+          <a href={profile.github} target="_blank" rel="noopener noreferrer">GitHub</a>
+        </li>
+        <li>
+          <a href={profile.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </li>
+        <li>
+          <a href={`mailto:${profile.email}`}>Email</a>
+        </li>
+      </ul>
+    </footer>
+  );
+}
+
+export default function App() {
+  return (
+    <>
+      <a className="skip-link" href="#main">
+        Skip to content
+      </a>
+      <Nav />
+      <main id="main">
+        <Hero />
+        <Work />
+        <Collaborations />
+        <Archive />
+        <About />
+        <Experience />
+        <Skills />
+        <Contact />
+      </main>
+      <Footer />
+    </>
+  );
+}
