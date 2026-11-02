@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,8 +9,7 @@
       content="Ashish Bhoure builds Windows tools, web apps and the servers behind them. Projects include Lumishot, RepoAtlas and Skillverse."
     />
     <meta name="google-site-verification" content="doYXKfFOnX2JBtv2ere2pCnGIxc8oS3M3K9Jp9VskFA" />
-    <meta name="theme-color" content="#e8ebef" media="(prefers-color-scheme: light)" />
-    <meta name="theme-color" content="#141824" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#141824" />
 
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Ashish Bhoure, full-stack developer" />
@@ -28,11 +27,11 @@
       rel="stylesheet"
     />
 
-    <!-- Apply the saved theme before first paint to avoid a flash. -->
+    <!-- Dark by default; a saved choice from the toggle wins. Runs before first paint. -->
     <script>
       try {
         var t = localStorage.getItem("theme");
-        if (!t) t = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        if (t !== "light" && t !== "dark") t = "dark";
         document.documentElement.dataset.theme = t;
       } catch (e) {}
     </script>

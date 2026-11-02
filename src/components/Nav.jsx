@@ -16,7 +16,7 @@ function getInitialTheme() {
   } catch {
     /* storage blocked */
   }
-  return window.matchMedia?.("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  return "dark"; // default for first-time visitors
 }
 
 export default function Nav() {
