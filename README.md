@@ -21,11 +21,18 @@ npm run dev
 
 ## Contact form
 
-The enquiry form sends through **Web3Forms** when  is set (free key from
+The enquiry form sends through **Web3Forms** when `VITE_WEB3FORMS_KEY` is set (free key from
 web3forms.com; there is no mailbox login that can expire), otherwise through EmailJS:
 
-\
-Put them in  (git-ignored) and in your hosting provider's environment settings.
+```
+VITE_WEB3FORMS_KEY=...
+# or
+VITE_APP_EMAILJS_SERVICE_ID=...
+VITE_APP_EMAILJS_TEMPLATE_ID=...
+VITE_APP_EMAILJS_PUBLIC_KEY=...
+```
+
+Put them in `.env.local` (git-ignored) and in your hosting provider's environment settings.
 If sending fails, the form offers a prefilled email and WhatsApp instead.
 
 ## Editing content
