@@ -4,7 +4,7 @@ Personal site with pages for home, work (with a case-study page per project), ab
 
 The hero is a small Three.js scene: one floating app window per featured project, painted onto a
 canvas texture at runtime (screenshots where they exist, drawn mock-ups otherwise). It tilts with
-the pointer and clicking a window scrolls to that project. The 3D code is lazy-loaded, skipped
+the pointer and clicking a window opens that project's case study. The 3D code is lazy-loaded, skipped
 without WebGL, and holds still for people who prefer reduced motion.
 
 ## Stack
