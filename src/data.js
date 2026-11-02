@@ -335,9 +335,9 @@ export const availability = {
   text: "Taking new freelance projects",
 };
 
-/** Contact channels besides the form. Delete `whatsapp` to hide that button. */
+/** Contact channels besides the form. Set `whatsapp` to a wa.me link to show that button. */
 export const channels = {
-  whatsapp: "https://wa.me/918305693299",
+  whatsapp: null, // hidden for now; was "https://wa.me/918305693299"
 };
 
 /** Plain facts, computed where possible so they stay true. */
