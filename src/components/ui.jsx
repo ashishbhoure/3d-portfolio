@@ -1,7 +1,22 @@
 import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { paintPane } from "./hero/panePaint";
-import { collaborations, archive, jobs, skills, profile } from "../data";
+import {
+  collaborations,
+  archive,
+  jobs,
+  skills,
+  profile,
+  projects,
+  availability,
+  stats,
+  services,
+  steps,
+  team,
+  testimonials,
+  faqs,
+  channels,
+} from "../data";
 
 export function usePageTitle(title, description) {
   useEffect(() => {
@@ -183,23 +198,158 @@ export function Skills() {
   );
 }
 
-export function ContactBand() {
+export function ContactBand({ title = "Have a project in mind?" }) {
   return (
     <section className="section">
       <div className="band">
         <div>
-          <h2>Have something to build?</h2>
-          <p>Freelance projects, full-time roles or a quick question. I usually reply within a day.</p>
+          <Availability />
+          <h2>{title}</h2>
+          <p>
+            Tell me what you want to build. You get a reply within a day and a written estimate after
+            a short call.
+          </p>
         </div>
         <div className="band-actions">
           <Link className="btn btn--primary" to="/contact">
-            Get in touch
+            Start a project
           </Link>
-          <a className="btn btn--ghost" href={`mailto:${profile.email}`}>
-            Email me
-          </a>
+          {channels.whatsapp ? (
+            <a className="btn btn--ghost" href={channels.whatsapp} target="_blank" rel="noopener noreferrer">
+              Chat on WhatsApp
+            </a>
+          ) : (
+            <a className="btn btn--ghost" href={`mailto:${profile.email}`}>
+              Email me
+            </a>
+          )}
         </div>
       </div>
     </section>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Freelance blocks
+// ---------------------------------------------------------------------------
+
+export function Availability() {
+  if (!availability.open) return null;
+  return (
+    <p className="availability">
+      <span className="availability-dot" aria-hidden="true" />
+      {availability.text}
+    </p>
+  );
+}
+
+export function Stats() {
+  return (
+    <dl className="stats">
+      {stats.map((s) => (
+        <div key={s.label}>
+          <dt>{s.label}</dt>
+          <dd>{s.value}</dd>
+        </div>
+      ))}
+    </dl>
+  );
+}
+
+export function ServiceList({ limit }) {
+  const list = limit ? services.slice(0, limit) : services;
+  return (
+    <ul className="services">
+      {list.map((s) => {
+        const ex = s.examples.map((id) => projects.find((p) => p.id === id)).filter(Boolean);
+        return (
+          <li key={s.id}>
+            <h3>{s.title}</h3>
+            <p>{s.text}</p>
+            {ex.length > 0 && (
+              <p className="service-examples">
+                For example{" "}
+                {ex.map((p, i) => (
+                  <span key={p.id}>
+                    {i > 0 && (i === ex.length - 1 ? " and " : ", ")}
+                    <Link to={`/work/${p.id}`}>{p.name}</Link>
+                  </span>
+                ))}
+              </p>
+            )}
+          </li>
+        );
+      })}
+    </ul>
+  );
+}
+
+export function Steps() {
+  return (
+    <ol className="steps">
+      {steps.map((s, i) => (
+        <li key={s.title}>
+          <span className="step-num" aria-hidden="true">
+            {i + 1}
+          </span>
+          <h3>{s.title}</h3>
+          <p>{s.text}</p>
+        </li>
+      ))}
+    </ol>
+  );
+}
+
+export function Team() {
+  return (
+    <div className="team">
+      <p className="team-intro">{team.intro}</p>
+      <ul className="team-roles">
+        <li className="team-lead">
+          <h3>Ashish Bhoure</h3>
+          <p>Lead developer and your point of contact. Plans, builds and reviews.</p>
+        </li>
+        {team.roles.map((r) => (
+          <li key={r.title}>
+            <h3>{r.title}</h3>
+            <p>{r.text}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+export function Testimonials() {
+  if (!testimonials.length) return null;
+  return (
+    <section className="section" aria-labelledby="t-title">
+      <header className="section-head">
+        <h2 id="t-title">What clients say</h2>
+      </header>
+      <ul className="quotes">
+        {testimonials.map((t) => (
+          <li key={t.name}>
+            <blockquote>{t.quote}</blockquote>
+            <p className="quote-by">
+              {t.name}, {t.role}
+            </p>
+          </li>
+        ))}
+      </ul>
+    </section>
+  );
+}
+
+export function Faq() {
+  return (
+    <div className="faq">
+      {faqs.map((f) => (
+        <details key={f.q}>
+          <summary>{f.q}</summary>
+          <p>{f.a}</p>
+        </details>
+      ))}
+    </div>
   );
 }

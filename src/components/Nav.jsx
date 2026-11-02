@@ -4,9 +4,9 @@ import logo from "../assets/logoAB.png";
 
 const links = [
   { to: "/work", label: "Work" },
+  { to: "/services", label: "Services" },
   { to: "/about", label: "About" },
   { to: "/resume", label: "Résumé" },
-  { to: "/contact", label: "Contact" },
 ];
 
 function getInitialTheme() {
@@ -64,6 +64,9 @@ export default function Nav() {
               {l.label}
             </NavLink>
           ))}
+          <NavLink to="/contact" className="nav-cta">
+            Start a project
+          </NavLink>
         </nav>
 
         <div className="nav-actions">

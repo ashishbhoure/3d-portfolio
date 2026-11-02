@@ -6,6 +6,7 @@ import { profile } from "./data";
 
 const Work = lazy(() => import("./pages/Work"));
 const ProjectDetail = lazy(() => import("./pages/ProjectDetail"));
+const Services = lazy(() => import("./pages/Services"));
 const About = lazy(() => import("./pages/About"));
 const Resume = lazy(() => import("./pages/Resume"));
 const ContactPage = lazy(() => import("./pages/ContactPage"));
@@ -68,12 +69,14 @@ export default function App() {
           <Route index element={<Home />} />
           <Route path="work" element={<Work />} />
           <Route path="work/:id" element={<ProjectDetail />} />
+          <Route path="services" element={<Services />} />
           <Route path="about" element={<About />} />
           <Route path="resume" element={<Resume />} />
           <Route path="contact" element={<ContactPage />} />
           {/* old URLs from the previous site */}
           <Route path="projects" element={<Navigate to="/work" replace />} />
           <Route path="home" element={<Navigate to="/" replace />} />
+          <Route path="hire" element={<Navigate to="/services" replace />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>

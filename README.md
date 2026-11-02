@@ -1,6 +1,6 @@
 # Ashish Bhoure, portfolio
 
-Personal site with pages for home, work (with a case-study page per project), about, résumé and contact.
+Personal site with pages for home, work (with a case-study page per project), services, about, résumé and contact.
 
 The hero is a small Three.js scene: one floating app window per featured project, painted onto a
 canvas texture at runtime (screenshots where they exist, drawn mock-ups otherwise). It tilts with
@@ -21,18 +21,14 @@ npm run dev
 
 ## Contact form
 
-Copy `.env.local.demo` to `.env.local` and fill in the EmailJS keys:
+The enquiry form sends through **Web3Forms** when  is set (free key from
+web3forms.com; there is no mailbox login that can expire), otherwise through EmailJS:
 
-```
-VITE_APP_EMAILJS_SERVICE_ID=...
-VITE_APP_EMAILJS_TEMPLATE_ID=...
-VITE_APP_EMAILJS_PUBLIC_KEY=...
-```
-
-Without them the form opens the visitor's mail app instead. `.env.local` is git-ignored; set the
-same variables in your hosting provider's settings.
+\
+Put them in  (git-ignored) and in your hosting provider's environment settings.
+If sending fails, the form offers a prefilled email and WhatsApp instead.
 
 ## Editing content
 
-Everything shown on the page lives in `src/data.js`: projects, collaborations, archive,
-timeline and skills. Project screenshots go in `src/assets/projects/`.
+Everything shown on the site lives in `src/data.js`: projects, jobs, skills, services, process,
+team, FAQ, availability and testimonials (add real quotes there and the section appears). Project screenshots go in `src/assets/projects/`.

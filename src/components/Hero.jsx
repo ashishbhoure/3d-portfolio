@@ -1,7 +1,7 @@
 import { lazy, Suspense, useEffect, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
-import { profile } from "../data";
+import { Availability } from "./ui";
 
 const HeroScene = lazy(() => import("./hero/HeroScene"));
 
@@ -40,6 +40,9 @@ export default function Hero() {
       </div>
 
       <div className="hero-copy">
+        <motion.div {...rise(0)}>
+          <Availability />
+        </motion.div>
         <motion.h1 className="hero-title" {...rise(0)}>
           Ashish Bhoure
         </motion.h1>
@@ -48,15 +51,15 @@ export default function Hero() {
           dashboards to Windows apps.
         </motion.p>
         <motion.p className="hero-meta" {...rise(0.2)}>
-          Full-stack developer at 3Columns, based in Indore, India.
+          Full-stack developer at 3Columns and freelancer, based in Indore, India. Working with clients worldwide.
         </motion.p>
         <motion.div className="hero-actions" {...rise(0.28)}>
-          <Link className="btn btn--primary" to="/work">
+          <Link className="btn btn--primary" to="/contact">
+            Start a project
+          </Link>
+          <Link className="btn btn--ghost" to="/work">
             See my work
           </Link>
-          <a className="btn btn--ghost" href={profile.resume} target="_blank" rel="noopener noreferrer">
-            Download résumé
-          </a>
         </motion.div>
       </div>
     </section>

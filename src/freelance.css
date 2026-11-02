@@ -1,0 +1,431 @@
+/* Client-facing blocks: availability, proof strip, services, process,
+   engagements, team, testimonials, FAQ and the enquiry form. */
+
+:root {
+  --green: #13a35b;
+}
+:root[data-theme="dark"] {
+  --green: #3ddc84;
+}
+
+.availability {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 14px 6px 12px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--green) 12%, transparent);
+  color: var(--ink);
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin-bottom: 22px;
+}
+.availability-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 0 0 color-mix(in srgb, var(--green) 60%, transparent);
+  animation: pulse 2.4s ease-out infinite;
+}
+@keyframes pulse {
+  70% {
+    box-shadow: 0 0 0 9px transparent;
+  }
+  100% {
+    box-shadow: 0 0 0 0 transparent;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .availability-dot {
+    animation: none;
+  }
+}
+.band .availability {
+  color: var(--bg);
+  background: color-mix(in srgb, var(--green) 22%, transparent);
+}
+.page-header-lede .availability {
+  margin-bottom: 18px;
+}
+
+/* Nav call to action */
+.nav-links a.nav-cta {
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: var(--cobalt);
+  color: var(--cobalt-ink);
+  font-weight: 600;
+  text-decoration: none;
+}
+.nav-links a.nav-cta:hover {
+  background: color-mix(in srgb, var(--cobalt) 86%, var(--ink));
+  color: var(--cobalt-ink);
+}
+@media (max-width: 1000px) and (min-width: 761px) {
+  .nav-links {
+    gap: 18px;
+  }
+}
+@media (max-width: 760px) {
+  .nav-links a.nav-cta {
+    margin-top: 14px;
+    text-align: center;
+    border-bottom: 0;
+    color: var(--cobalt-ink);
+  }
+}
+
+/* Proof strip under the hero */
+.proof {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+  gap: clamp(28px, 5vw, 64px);
+  align-items: end;
+  padding-top: 0;
+}
+.stats {
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px 44px;
+}
+.stats > div {
+  display: flex;
+  flex-direction: column-reverse;
+}
+.stats dd {
+  margin: 0;
+  font: 800 clamp(2.4rem, 5vw, 3.4rem) / 1 var(--font-display);
+  letter-spacing: -0.03em;
+}
+.stats dt {
+  margin-top: 6px;
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+  max-width: 14ch;
+}
+.clients h2 {
+  font: 600 0.95rem var(--font-body);
+  color: var(--ink-soft);
+  margin-bottom: 12px;
+}
+.clients ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 28px;
+}
+.clients li {
+  font: 700 var(--step-1) var(--font-display);
+  letter-spacing: -0.01em;
+  color: color-mix(in srgb, var(--ink) 78%, var(--bg));
+}
+@media (max-width: 860px) {
+  .proof {
+    grid-template-columns: 1fr;
+    padding-top: 40px;
+  }
+}
+
+/* Services */
+.services {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
+  gap: 0 40px;
+  border-top: 2px solid var(--ink);
+}
+.services li {
+  padding: 22px 0 24px;
+  border-bottom: 1px solid var(--line);
+}
+.services h3 {
+  font-size: var(--step-2);
+  letter-spacing: -0.01em;
+}
+.services p {
+  margin-top: 8px;
+  color: var(--ink-soft);
+}
+.service-examples {
+  font-size: 0.95rem;
+}
+.service-examples a {
+  color: var(--ink);
+  font-weight: 600;
+  text-underline-offset: 3px;
+}
+
+/* Process steps: a real sequence, so numbered */
+.steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 190px), 1fr));
+  gap: 28px;
+}
+.steps li {
+  position: relative;
+  padding-top: 64px;
+}
+.steps li::before {
+  content: "";
+  position: absolute;
+  top: 22px;
+  left: 52px;
+  right: -20px;
+  height: 2px;
+  background: var(--line);
+}
+.steps li:last-child::before {
+  display: none;
+}
+.step-num {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--ink);
+  color: var(--bg);
+  font: 700 1.1rem var(--font-display);
+}
+.steps h3 {
+  font-size: var(--step-1);
+}
+.steps p {
+  margin-top: 6px;
+  color: var(--ink-soft);
+}
+@media (max-width: 640px) {
+  .steps li::before {
+    display: none;
+  }
+}
+
+/* Engagement models */
+.engagements {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: 20px;
+}
+.engagements li {
+  padding: 28px;
+  border-radius: 20px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+}
+.engagements h3 {
+  font-size: var(--step-2);
+}
+.engagement-fit {
+  margin: 10px 0 12px;
+  font-weight: 600;
+  color: var(--cobalt);
+}
+.engagements p:last-child {
+  color: var(--ink-soft);
+}
+
+/* Team */
+.team-intro {
+  max-width: 62ch;
+  font-size: var(--step-1);
+  line-height: 1.45;
+}
+.team-roles {
+  list-style: none;
+  margin: 32px 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr));
+  gap: 16px;
+}
+.team-roles li {
+  padding: 22px;
+  border-radius: 18px;
+  border: 1.5px solid var(--line);
+}
+.team-roles .team-lead {
+  background: var(--ink);
+  color: var(--bg);
+  border-color: var(--ink);
+}
+.team-roles h3 {
+  font-size: var(--step-1);
+}
+.team-roles p {
+  margin-top: 6px;
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+}
+.team-roles .team-lead p {
+  color: inherit;
+  opacity: 0.8;
+}
+.team-teaser > div {
+  padding: clamp(28px, 5vw, 52px);
+  border-radius: 28px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+}
+.team-teaser h2 {
+  font-size: var(--step-4);
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+}
+.team-teaser p {
+  max-width: 62ch;
+  font-size: var(--step-1);
+  line-height: 1.45;
+}
+.team-teaser-roles {
+  margin: 12px 0 20px;
+  color: var(--ink-soft);
+}
+
+/* Testimonials */
+.quotes {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+  gap: 28px;
+}
+.quotes blockquote {
+  margin: 0;
+  font: 500 var(--step-1) / 1.4 var(--font-display);
+}
+.quote-by {
+  margin-top: 12px;
+  color: var(--ink-soft);
+}
+
+/* FAQ */
+.faq {
+  border-top: 2px solid var(--ink);
+  max-width: 820px;
+}
+.faq details {
+  border-bottom: 1px solid var(--line);
+}
+.faq summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 20px 40px 20px 0;
+  position: relative;
+  font: 700 var(--step-1) var(--font-display);
+}
+.faq summary::-webkit-details-marker {
+  display: none;
+}
+.faq summary::after {
+  content: "+";
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  font: 400 1.8rem var(--font-body);
+  transition: transform 0.2s ease;
+}
+.faq details[open] summary::after {
+  transform: translateY(-50%) rotate(45deg);
+}
+.faq details p {
+  padding: 0 0 22px;
+  max-width: 64ch;
+  color: var(--ink-soft);
+}
+
+/* Enquiry form */
+.channels {
+  list-style: none;
+  margin: 28px 0 0;
+  padding: 0;
+  border-top: 2px solid var(--ink);
+}
+.channels li {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+}
+.channels span {
+  color: var(--ink-soft);
+}
+.contact h2.contact-next-title {
+  margin-top: 36px;
+  font-size: var(--step-1);
+}
+.contact-next {
+  margin: 12px 0 0;
+  padding-left: 1.3em;
+  display: grid;
+  gap: 8px;
+  color: var(--ink-soft);
+}
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+@media (max-width: 520px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}
+.contact-form select {
+  font: inherit;
+  font-weight: 400;
+  color: var(--ink);
+  background: var(--surface);
+  border: 1.5px solid var(--line);
+  border-radius: 12px;
+  padding: 12px 14px;
+}
+.contact-form select:focus {
+  border-color: var(--cobalt);
+  outline: none;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--cobalt) 25%, transparent);
+}
+.optional {
+  font-weight: 400;
+  color: var(--ink-soft);
+}
+.contact-done {
+  align-self: start;
+  padding: 36px;
+  border-radius: 24px;
+  background: color-mix(in srgb, var(--green) 10%, var(--surface));
+  border: 1px solid color-mix(in srgb, var(--green) 40%, transparent);
+}
+.contact-done h2 {
+  font-size: var(--step-3);
+}
+.contact-done p {
+  margin: 10px 0 22px;
+}
+
+@media (max-width: 760px) {
+  .contact {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+.channels a {
+  overflow-wrap: anywhere;
+}

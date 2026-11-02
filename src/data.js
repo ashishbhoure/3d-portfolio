@@ -324,3 +324,170 @@ export const skills = [
   { group: "Cloud and DevOps", items: ["AWS EC2 and S3", "Docker", "Jenkins", "CI/CD", "Vercel"] },
   { group: "Tools", items: ["Git", "GitHub", "GitLab", "Bitbucket", "Postman", "Swagger", "Jira", "Playwright", "Vitest"] },
 ];
+
+// ---------------------------------------------------------------------------
+// Freelance / hire-me content
+// ---------------------------------------------------------------------------
+
+/** Shown on the home page and the services page. Set `open: false` when booked up. */
+export const availability = {
+  open: true,
+  text: "Taking new freelance projects",
+};
+
+/** Contact channels besides the form. Delete `whatsapp` to hide that button. */
+export const channels = {
+  whatsapp: "https://wa.me/918305693299",
+};
+
+/** Plain facts, computed where possible so they stay true. */
+export const stats = [
+  { value: "4+", label: "years building production apps" },
+  { value: `${projects.length + collaborations.length + archive.length}`, label: "projects built" },
+  { value: "2", label: "product companies" },
+];
+
+/** Names that appear on the home page under "People I've built for". */
+export const clients = ["3Columns", "DevSecRoot Technology", "Study Champion Academy", "Umiya Biotech", "21 Spades"];
+
+/**
+ * Real quotes only. Each: { quote, name, role }. The section stays hidden
+ * while this list is empty.
+ */
+export const testimonials = [];
+
+export const services = [
+  {
+    id: "web-apps",
+    title: "Web apps and SaaS",
+    text: "Customer-facing apps with sign-in, roles, payments and the dashboard your users live in.",
+    examples: ["repoatlas", "notes"],
+  },
+  {
+    id: "dashboards",
+    title: "Admin panels and dashboards",
+    text: "Internal tools that turn spreadsheets and email threads into one screen with the numbers that matter.",
+    examples: ["vmaas", "autorox"],
+  },
+  {
+    id: "apis",
+    title: "APIs and backends",
+    text: "REST APIs, databases and integrations with payment gateways, notifications and third-party services.",
+    examples: ["shieldguard"],
+  },
+  {
+    id: "ecommerce",
+    title: "Online stores",
+    text: "Catalogues, filtering and search, cart and checkout for stores with a handful or thousands of products.",
+    examples: ["ecommerce"],
+  },
+  {
+    id: "desktop",
+    title: "Windows desktop apps",
+    text: "Tools that live in the tray or the right-click menu, with installers and auto-updates.",
+    examples: ["lumishot", "tangerine"],
+  },
+  {
+    id: "websites",
+    title: "Business websites",
+    text: "Fast, mobile-friendly sites for companies, schools and clinics that are easy to update.",
+    examples: [],
+  },
+  {
+    id: "rescue",
+    title: "Speed-ups and fixes",
+    text: "Slow pages, timeouts and fragile code in an existing React or Node app found, measured and fixed.",
+    examples: [],
+  },
+  {
+    id: "support",
+    title: "Maintenance and support",
+    text: "Monthly upkeep after launch: updates, small features, monitoring and fixes when something breaks.",
+    examples: [],
+  },
+];
+
+/** A real sequence, so it is numbered on the page. */
+export const steps = [
+  {
+    title: "Talk",
+    text: "A short call or chat about what you need, who uses it and when it has to be live.",
+  },
+  {
+    title: "Plan and estimate",
+    text: "A written scope with screens, milestones, price and dates, so you know what you're paying for.",
+  },
+  {
+    title: "Design and build",
+    text: "Work in short cycles with a demo link you can click every week. Feedback goes straight in.",
+  },
+  {
+    title: "Launch",
+    text: "Deployment, domain, analytics and a handover of the code and every account in your name.",
+  },
+  {
+    title: "Support",
+    text: "A bug-fix period after launch, then optional monthly support as the product grows.",
+  },
+];
+
+export const engagements = [
+  {
+    title: "Fixed-scope project",
+    fit: "You know what you want built.",
+    how: "One agreed price split across milestones. You pay as each milestone is delivered.",
+  },
+  {
+    title: "Monthly retainer",
+    fit: "You have a live product that keeps needing work.",
+    how: "A set number of hours each month for features, fixes and upkeep, rolled into one invoice.",
+  },
+  {
+    title: "Dedicated developer",
+    fit: "You need an extra full-stack developer on your team.",
+    how: "I join your standups, tools and sprints, part-time or full-time, billed monthly.",
+  },
+];
+
+/** Roles, not names: the people I bring in when a project needs more hands. */
+export const team = {
+  intro:
+    "Bigger projects get a small team I've shipped with before. You still deal with one person: me. I plan the work, review every line that goes out and stay your single point of contact.",
+  roles: [
+    { title: "UI/UX designer", text: "Wireframes, visual design and a clickable prototype before code starts." },
+    { title: "Frontend and backend developers", text: "Extra hands on React and Node when the timeline is tight." },
+    { title: "QA tester", text: "Manual and automated testing on real devices before every release." },
+    { title: "DevOps", text: "Cloud setup, CI/CD, backups and monitoring on AWS or Vercel." },
+  ],
+};
+
+export const faqs = [
+  {
+    q: "How much does a project cost?",
+    a: "It depends on scope. After our first call you get a written estimate with a fixed price per milestone, so there are no surprises.",
+  },
+  {
+    q: "How long does it take?",
+    a: "A business website usually takes a few weeks; a full web app or platform takes a few months. The estimate includes dates for every milestone.",
+  },
+  {
+    q: "Do you work with clients outside India?",
+    a: "Yes. I work remotely and keep a few hours of overlap with your time zone for calls and quick replies.",
+  },
+  {
+    q: "Who owns the code?",
+    a: "You do. The repository, hosting, domain and every account are set up in your name or handed over at launch.",
+  },
+  {
+    q: "Will you sign an NDA?",
+    a: "Yes, happily, before we discuss the details of your idea.",
+  },
+  {
+    q: "What happens after launch?",
+    a: "Bugs found shortly after launch are fixed at no cost. After that you can move to a monthly retainer or call me when you need something.",
+  },
+];
+
+export const projectTypes = [...services.map((s) => s.title), "Something else"];
+export const budgets = ["Not sure yet", "Under $1,000", "$1,000 – $5,000", "$5,000 – $15,000", "$15,000+"];
+export const timelines = ["As soon as possible", "Within a month", "1 – 3 months", "Flexible"];
