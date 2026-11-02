@@ -33,43 +33,63 @@ function compose(f) {
     .join("\n");
 }
 
-/** Web3Forms first (no mailbox login that can expire), then EmailJS. */
+async function viaWeb3Forms(f) {
+  const res = await fetch("https://api.web3forms.com/submit", {
+    method: "POST",
+    headers: { "Content-Type": "application/json", Accept: "application/json" },
+    body: JSON.stringify({
+      access_key: web3formsKey,
+      subject: `New project enquiry from ${f.name}`,
+      from_name: "Portfolio enquiry",
+      name: f.name,
+      email: f.email,
+      replyto: f.email,
+      message: compose(f),
+      botcheck: f.botcheck,
+    }),
+  });
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok || !data.success) throw new Error(data.message || `Web3Forms ${res.status}`);
+}
+
+async function viaEmailJS(f) {
+  await emailjs.send(
+    env.VITE_APP_EMAILJS_SERVICE_ID,
+    env.VITE_APP_EMAILJS_TEMPLATE_ID,
+    {
+      from_name: f.name,
+      to_name: "Ashish",
+      from_email: f.email,
+      to_email: profile.email,
+      message: compose(f),
+    },
+    env.VITE_APP_EMAILJS_PUBLIC_KEY
+  );
+}
+
+/** Configured senders, most reliable first. */
+const senders = [
+  web3formsKey && ["Web3Forms", viaWeb3Forms],
+  emailjsReady && ["EmailJS", viaEmailJS],
+].filter(Boolean);
+
+const TIMEOUT_MS = 15000;
+const withTimeout = (p) =>
+  Promise.race([p, new Promise((_, rej) => setTimeout(() => rej(new Error("timed out")), TIMEOUT_MS))]);
+
+/** Tries each sender until one succeeds. */
 async function send(f) {
-  if (web3formsKey) {
-    const res = await fetch("https://api.web3forms.com/submit", {
-      method: "POST",
-      headers: { "Content-Type": "application/json", Accept: "application/json" },
-      body: JSON.stringify({
-        access_key: web3formsKey,
-        subject: `New project enquiry from ${f.name}`,
-        from_name: "Portfolio enquiry",
-        name: f.name,
-        email: f.email,
-        replyto: f.email,
-        message: compose(f),
-        botcheck: f.botcheck,
-      }),
-    });
-    const data = await res.json().catch(() => ({}));
-    if (!res.ok || !data.success) throw new Error(data.message || `Web3Forms ${res.status}`);
-    return;
+  if (!senders.length) throw new Error("No mail service configured");
+  const errors = [];
+  for (const [name, fn] of senders) {
+    try {
+      await withTimeout(fn(f));
+      return;
+    } catch (err) {
+      errors.push(`${name}: ${err?.text ?? err?.message ?? err}`);
+    }
   }
-  if (emailjsReady) {
-    await emailjs.send(
-      env.VITE_APP_EMAILJS_SERVICE_ID,
-      env.VITE_APP_EMAILJS_TEMPLATE_ID,
-      {
-        from_name: f.name,
-        to_name: "Ashish",
-        from_email: f.email,
-        to_email: profile.email,
-        message: compose(f),
-      },
-      env.VITE_APP_EMAILJS_PUBLIC_KEY
-    );
-    return;
-  }
-  throw new Error("No mail service configured");
+  throw new Error(errors.join(" | "));
 }
 
 export default function Contact() {
