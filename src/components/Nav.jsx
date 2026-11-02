@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import logo from "../assets/logoAB.png";
-import { profile } from "../data";
 
 const links = [
-  { href: "#work", label: "Work" },
-  { href: "#experience", label: "Experience" },
-  { href: "#skills", label: "Skills" },
-  { href: "#contact", label: "Contact" },
+  { to: "/work", label: "Work" },
+  { to: "/about", label: "About" },
+  { to: "/resume", label: "Résumé" },
+  { to: "/contact", label: "Contact" },
 ];
 
 function getInitialTheme() {
@@ -23,6 +23,10 @@ export default function Nav() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [theme, setTheme] = useState(getInitialTheme);
+  const { pathname } = useLocation();
+
+  // Close the mobile menu whenever the page changes.
+  useEffect(() => setOpen(false), [pathname]);
 
   useEffect(() => {
     document.documentElement.dataset.theme = theme;
@@ -49,20 +53,17 @@ export default function Nav() {
   return (
     <header className={`nav ${scrolled ? "nav--scrolled" : ""}`}>
       <div className="nav-inner">
-        <a href="#top" className="nav-brand" onClick={() => setOpen(false)}>
+        <Link to="/" className="nav-brand">
           <img src={logo} alt="" width="28" height="28" />
           <span>Ashish Bhoure</span>
-        </a>
+        </Link>
 
         <nav id="site-menu" className={`nav-links ${open ? "is-open" : ""}`} aria-label="Main">
           {links.map((l) => (
-            <a key={l.href} href={l.href} onClick={() => setOpen(false)}>
+            <NavLink key={l.to} to={l.to}>
               {l.label}
-            </a>
+            </NavLink>
           ))}
-          <a href={profile.resume} target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}>
-            Résumé
-          </a>
         </nav>
 
         <div className="nav-actions">

@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import * as THREE from "three";
-import { featured } from "../../data";
+import { heroProjects } from "../../data";
 import { createPaneTexture, TEX_W, TEX_H } from "./paneTexture";
 
 const PANE_W = 3.3;
@@ -12,8 +12,8 @@ const LAYOUT = [
   { p: [-1.25, 1.0, 0.2], r: [0.02, 0.3, -0.035] }, // lumishot
   { p: [1.45, 1.2, -1.1], r: [0.04, -0.32, 0.03] }, // repoatlas
   { p: [0.25, -0.95, 1.0], r: [-0.04, 0.08, 0.02] }, // skillverse
-  { p: [1.95, -0.85, -0.5], r: [-0.02, -0.4, -0.03] }, // tangerine
-  { p: [-1.4, -1.2, -0.9], r: [0.03, 0.42, 0.04] }, // notes
+  { p: [1.7, -0.85, -0.5], r: [-0.02, -0.4, -0.03] }, // tangerine
+  { p: [-1.4, -1.2, -0.9], r: [0.03, 0.42, 0.04] }, // vmaas
 ];
 
 const ease = (t) => 1 - Math.pow(1 - t, 3);
@@ -75,7 +75,7 @@ function Rig({ children, reduced, pointer }) {
   const { viewport, size } = useThree();
   const wide = size.width >= 900;
   // Fit the stack to the canvas; on wide screens it sits to the right of the headline.
-  const scale = Math.min(1.05, viewport.width / (wide ? 13 : 8.6));
+  const scale = Math.min(1.05, viewport.width / (wide ? 13.8 : 8.6));
   const offsetX = wide ? viewport.width * 0.24 : 0;
 
   useFrame(() => {
@@ -117,7 +117,7 @@ export default function HeroScene({ onSelect }) {
     };
   }, [hovered]);
 
-  const label = featured.find((p) => p.id === hovered);
+  const label = heroProjects.find((p) => p.id === hovered);
 
   return (
     <>
@@ -128,7 +128,7 @@ export default function HeroScene({ onSelect }) {
         aria-hidden="true"
       >
         <Rig reduced={reduced} pointer={pointer}>
-          {featured.map((project, i) => (
+          {heroProjects.map((project, i) => (
             <Pane
               key={project.id}
               project={project}
@@ -143,7 +143,7 @@ export default function HeroScene({ onSelect }) {
         </Rig>
       </Canvas>
       <p className="hero-scene-hint" aria-live="polite">
-        {label ? `Open ${label.name}` : "Click a window to jump to the project"}
+        {label ? `Open the ${label.name} case study` : "Click a window to open that project"}
       </p>
     </>
   );

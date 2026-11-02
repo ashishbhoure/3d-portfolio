@@ -1,6 +1,6 @@
 # Ashish Bhoure, portfolio
 
-Personal site: featured projects, team and client work, experience, skills and a contact form.
+Personal site with pages for home, work (with a case-study page per project), about, résumé and contact.
 
 The hero is a small Three.js scene: one floating app window per featured project, painted onto a
 canvas texture at runtime (screenshots where they exist, drawn mock-ups otherwise). It tilts with

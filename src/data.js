@@ -1,21 +1,106 @@
 import repoatlasShot from "./assets/projects/repoatlas.webp";
+import repoatlasExplore from "./assets/projects/repoatlas-explore.webp";
 import skillverseShot from "./assets/projects/skillverse.webp";
+import skillverseRoadmap from "./assets/projects/skillverse-roadmap.webp";
 
 export const profile = {
   name: "Ashish Bhoure",
+  role: "Full-stack developer",
+  location: "Indore, India",
   email: "ashishbhoure@gmail.com",
   github: "https://github.com/ashishbhoure",
-  linkedin: "https://www.linkedin.com/in/ashish-bhoure-945717204/",
+  linkedin: "https://www.linkedin.com/in/ashishbhoure/",
   resume: "/Ashish-Bhoure-Resume.pdf",
 };
 
+export const categories = {
+  work: "Built at work",
+  product: "My own products",
+};
+
 /**
- * Featured work. `pane` drives the floating window in the 3D hero:
- * either a screenshot (`image`) or a procedural mock (`mock`).
+ * Every project with its own page. `pane` drives the window drawn in the
+ * 3D hero and in previews: a screenshot (`image`) or a drawn mock (`mock`).
  */
-export const featured = [
+export const projects = [
+  // ---- Professional work ----
+  {
+    id: "vmaas",
+    category: "work",
+    name: "VMaaS",
+    kind: "Vulnerability management platform",
+    duration: "11 months",
+    summary:
+      "A central place for security teams to track vulnerabilities across every asset they own, see which ones matter most, and report on them.",
+    points: [
+      "Dashboards for vulnerability severity, risk ratios and impact analysis",
+      "Tag-based asset inventory so teams can slice findings by environment, owner or product",
+      "Role-based access control and compliance-ready reports",
+    ],
+    stack: ["React", "Redux", "Node.js", "Express", "MongoDB", "RBAC"],
+    links: [],
+    note: "Company project, code not public",
+    pane: { mock: "vmaas", accent: "#E5484D" },
+  },
+  {
+    id: "shieldguard",
+    category: "work",
+    name: "ShieldGuard",
+    kind: "Log analysis and threat detection",
+    duration: "9 months",
+    summary:
+      "Watches log data in real time and raises an alert the moment a customer-defined condition is met.",
+    points: [
+      "Alert builder for both simple and complex queries on top of Elasticsearch",
+      "Alerts evaluated continuously against incoming logs, with notifications when they fire",
+      "Per-customer alert configuration and live dashboards for a multi-tenant setup",
+    ],
+    stack: ["React", "Node.js", "Express", "Elasticsearch", "MongoDB"],
+    links: [],
+    note: "Company project, code not public",
+    pane: { mock: "shieldguard", accent: "#2BB673" },
+  },
+  {
+    id: "autorox",
+    category: "work",
+    name: "Autorox",
+    kind: "Garage and workshop management",
+    duration: "10 months",
+    summary:
+      "Runs the day-to-day of a car workshop: job cards, service history, stock and invoices in one system.",
+    points: [
+      "Job cards that follow a vehicle from check-in to delivery",
+      "Service history per vehicle and automated billing",
+      "Inventory and stock management tied to the jobs that use the parts",
+    ],
+    stack: ["React", "Node.js", "Express", "MongoDB"],
+    links: [],
+    note: "Company project, code not public",
+    pane: { mock: "autorox", accent: "#F2A007" },
+  },
+  {
+    id: "ecommerce",
+    category: "work",
+    name: "Wayfair e-commerce platform",
+    kind: "Online store",
+    duration: "9 months",
+    summary:
+      "A store with more than 5,000 products across many categories, with filtering, search, cart and checkout.",
+    points: [
+      "Advanced filtering and search across 5,000+ listings",
+      "Cart management and a secure checkout flow",
+      "REST APIs for users, products and orders",
+    ],
+    stack: ["React", "Redux", "Node.js", "Express", "MongoDB"],
+    links: [],
+    note: "Company project, code not public",
+    pane: { mock: "shop", accent: "#7B3FE4" },
+  },
+
+  // ---- Own products ----
   {
     id: "lumishot",
+    category: "product",
     name: "Lumishot",
     kind: "Windows desktop app",
     summary:
@@ -32,6 +117,7 @@ export const featured = [
   },
   {
     id: "repoatlas",
+    category: "product",
     name: "RepoAtlas",
     kind: "Web app",
     summary:
@@ -46,11 +132,15 @@ export const featured = [
       { label: "Live demo", href: "https://repoatlas-sage.vercel.app" },
       { label: "Source", href: "https://github.com/ashishbhoure/repoatlas" },
     ],
-    image: repoatlasShot,
+    gallery: [
+      { src: repoatlasShot, alt: "RepoAtlas home page with the fastest-growing repositories" },
+      { src: repoatlasExplore, alt: "RepoAtlas explore page with search filters" },
+    ],
     pane: { image: repoatlasShot, accent: "#2E4BFF" },
   },
   {
     id: "skillverse",
+    category: "product",
     name: "Skillverse",
     kind: "Web app",
     summary:
@@ -62,11 +152,15 @@ export const featured = [
     ],
     stack: ["React", "TypeScript", "Vite", "SVG"],
     links: [{ label: "Source", href: "https://github.com/ashishbhoure/skillverse" }],
-    image: skillverseShot,
+    gallery: [
+      { src: skillverseShot, alt: "Skillverse constellation with a highlighted learning path" },
+      { src: skillverseRoadmap, alt: "Skillverse roadmap view for the frontend path" },
+    ],
     pane: { image: skillverseShot, accent: "#12B5A6" },
   },
   {
     id: "tangerine",
+    category: "product",
     name: "Tangerine for Windows",
     kind: "Windows desktop app",
     summary:
@@ -83,6 +177,7 @@ export const featured = [
   },
   {
     id: "notes",
+    category: "product",
     name: "Smart Notes",
     kind: "Full-stack web app",
     summary:
@@ -97,6 +192,11 @@ export const featured = [
     pane: { mock: "notes", accent: "#E8456B" },
   },
 ];
+
+// Order matches the slots in HeroScene LAYOUT.
+export const heroProjects = ["lumishot", "repoatlas", "skillverse", "tangerine", "vmaas"].map((id) =>
+  projects.find((p) => p.id === id)
+);
 
 /** Team, client and open-source work. */
 export const collaborations = [
@@ -139,32 +239,88 @@ export const archive = [
   { name: "Driver drowsiness detection", what: "Real-time blink tracking that sounds an alert", stack: "Python, OpenCV, dlib", href: "https://github.com/ashishbhoure/Driver_Drowsiness_Detection" },
 ];
 
-/** Newest first. */
-export const timeline = [
+/** Jobs, newest first. */
+export const jobs = [
   {
-    when: "2023 – now",
-    title: "Freelance full-stack developer",
-    where: "Self-employed, remote",
-    detail:
-      "Build web apps, admin panels and desktop tools for individuals and small businesses, from first sketch to deployment.",
+    company: "3Columns",
+    title: "Full-stack developer (MERN)",
+    when: "Feb 2025 – now",
+    points: [
+      "Build and maintain production web apps on the MERN stack, from first design to deployment",
+      "Design REST APIs with JWT and OAuth sign-in and role-based access control",
+      "Speed up APIs by tuning MongoDB aggregation pipelines, caching and lazy loading",
+      "Own features end to end: database design, React and Redux frontend, tests and AWS deploys",
+      "Work with QA and design in Agile sprints to fix production issues and ship stable releases",
+    ],
   },
   {
+    company: "DevSecRoot Technology",
+    title: "MERN stack developer",
+    when: "Jun 2022 – Feb 2025",
+    points: [
+      "Built Node.js and Express services with structured logging and complex business rules",
+      "Designed MongoDB schemas and data flows for high availability",
+      "Wrote modular React components with lazy loading and list virtualisation for fast pages",
+      "Integrated third-party APIs, payment gateways and notification services",
+      "Took part in code reviews and CI/CD pipelines for production releases",
+    ],
+  },
+];
+
+export const education = [
+  {
+    school: "International Institute of Professional Studies, DAVV",
+    detail: "Integrated M.Tech in Information Technology (B.Tech + M.Tech), CGPA 8.17",
     when: "2020 – 2025",
-    title: "Integrated M.Tech, Information Technology",
-    where: "International Institute of Professional Studies, DAVV Indore",
-    detail: "Graduated with a CGPA of 8.14. Data structures and algorithms, operating systems, DBMS and object-oriented design.",
   },
   {
-    when: "Certifications",
-    title: "Postman API Fundamentals Student Expert, Google Data Analytics",
-    where: "Plus programming in Java, Newton School",
+    school: "Kendriya Vidyalaya Mhow",
+    detail: "Class XII, Physics, Chemistry, Maths and IP, 84%",
+    when: "2019 – 2020",
+  },
+];
+
+export const certificates = [
+  "Postman API Fundamentals Student Expert",
+  "Google Data Analytics Professional Certificate",
+  "Programming in Java, Newton School",
+];
+
+/** How I work: from the résumé's engineering practices. */
+export const practices = [
+  {
+    title: "Clean architecture",
+    text: "Clear boundaries between routes, services and data so features can change without breaking each other.",
+  },
+  {
+    title: "Security from the start",
+    text: "JWT and OAuth sign-in with role-based access control, including multi-tenant platforms.",
+  },
+  {
+    title: "Solid APIs",
+    text: "Middleware validation, structured logs and consistent error handling on every endpoint.",
+  },
+  {
+    title: "Fast by default",
+    text: "Caching, query tuning, lazy loading, memoisation and virtualised lists where the data is large.",
+  },
+  {
+    title: "Predictable state",
+    text: "Redux or Context with modern hooks, chosen by how much state the screen really has.",
+  },
+  {
+    title: "Reviewed code",
+    text: "Small modular components, peer reviews and Git workflows that keep main shippable.",
   },
 ];
 
 export const skills = [
-  { group: "Languages", items: ["TypeScript", "JavaScript", "Python", "Java", "C++", "PHP"] },
-  { group: "Frontend", items: ["React", "Next.js", "Tailwind CSS", "Redux", "Zustand", "Three.js", "React Native"] },
-  { group: "Backend and data", items: ["Node.js", "Express", "REST APIs", "MongoDB", "MySQL", "Prisma"] },
+  { group: "Frontend", items: ["React", "Next.js", "TypeScript", "JavaScript (ES6+)", "HTML5", "CSS3", "Three.js"] },
+  { group: "UI and styling", items: ["Tailwind CSS", "Material UI", "Ant Design", "Bootstrap", "Styled Components"] },
+  { group: "State and data fetching", items: ["Redux", "Context API", "Zustand", "Axios", "WebSockets", "Apollo Client"] },
+  { group: "Backend", items: ["Node.js", "Express", "REST APIs", "JWT", "OAuth", "RBAC"] },
+  { group: "Databases and search", items: ["MongoDB", "Mongoose", "Aggregation pipelines", "MySQL", "Prisma", "Elasticsearch"] },
   { group: "Desktop", items: ["Electron", "Native modules", "FFmpeg", "sharp"] },
-  { group: "Shipping", items: ["Git", "Docker", "Vercel", "Playwright", "Vitest"] },
+  { group: "Cloud and DevOps", items: ["AWS EC2 and S3", "Docker", "Jenkins", "CI/CD", "Vercel"] },
+  { group: "Tools", items: ["Git", "GitHub", "GitLab", "Bitbucket", "Postman", "Swagger", "Jira", "Playwright", "Vitest"] },
 ];

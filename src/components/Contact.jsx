@@ -40,7 +40,8 @@ export default function Contact() {
       );
       setStatus("sent");
       setForm(empty);
-    } catch {
+    } catch (err) {
+      console.error("EmailJS send failed:", err?.text ?? err);
       setStatus("error");
     }
   };
@@ -48,7 +49,7 @@ export default function Contact() {
   return (
     <section className="section contact" id="contact" aria-labelledby="contact-title">
       <div className="contact-intro">
-        <h2 id="contact-title">Have something to build?</h2>
+        <h1 id="contact-title">Have something to build?</h1>
         <p>
           Tell me what you are working on and when you need it. I usually reply within a day.
         </p>
@@ -87,8 +88,20 @@ export default function Contact() {
           </button>
           <p className="form-status" role="status">
             {status === "sent" && "Message sent. I'll get back to you soon."}
-            {status === "error" &&
-              `Message not sent. Check your connection and try again, or email ${profile.email}.`}
+            {status === "error" && (
+              <>
+                Message not sent: the mail service didn&apos;t respond.{" "}
+                <a
+                  className="text-link"
+                  href={`mailto:${profile.email}?subject=${encodeURIComponent(
+                    `Hello from ${form.name}`
+                  )}&body=${encodeURIComponent(form.message)}`}
+                >
+                  Send it from your email app
+                </a>{" "}
+                instead. Your message is still in the form.
+              </>
+            )}
           </p>
         </div>
       </form>

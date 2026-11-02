@@ -1,5 +1,6 @@
 import { lazy, Suspense, useEffect, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
+import { Link, useNavigate } from "react-router-dom";
 import { profile } from "../data";
 
 const HeroScene = lazy(() => import("./hero/HeroScene"));
@@ -13,12 +14,10 @@ function hasWebGL() {
   }
 }
 
-const scrollToProject = (id) =>
-  document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
-
 export default function Hero() {
   const [webgl, setWebgl] = useState(false);
   const reduce = useReducedMotion();
+  const navigate = useNavigate();
   useEffect(() => setWebgl(hasWebGL()), []);
 
   const rise = (delay) =>
@@ -31,11 +30,11 @@ export default function Hero() {
         };
 
   return (
-    <section className="hero" id="top">
+    <section className="hero">
       <div className="hero-scene">
         {webgl && (
           <Suspense fallback={null}>
-            <HeroScene onSelect={scrollToProject} />
+            <HeroScene onSelect={(id) => navigate(`/work/${id}`)} />
           </Suspense>
         )}
       </div>
@@ -45,16 +44,16 @@ export default function Hero() {
           Ashish Bhoure
         </motion.h1>
         <motion.p className="hero-lede" {...rise(0.12)}>
-          I build software people open every day: Windows tools, web apps, and the
-          servers and data behind them.
+          I build web platforms, APIs and the tools people open every day, from security
+          dashboards to Windows apps.
         </motion.p>
         <motion.p className="hero-meta" {...rise(0.2)}>
-          Full-stack developer in India, available for freelance and full-time work.
+          Full-stack developer at 3Columns, based in Indore, India.
         </motion.p>
         <motion.div className="hero-actions" {...rise(0.28)}>
-          <a className="btn btn--primary" href="#work">
+          <Link className="btn btn--primary" to="/work">
             See my work
-          </a>
+          </Link>
           <a className="btn btn--ghost" href={profile.resume} target="_blank" rel="noopener noreferrer">
             Download résumé
           </a>

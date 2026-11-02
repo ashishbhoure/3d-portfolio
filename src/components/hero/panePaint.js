@@ -154,6 +154,145 @@ const mocks = {
     ctx.textAlign = "left";
   },
 
+  // Vulnerability dashboard: severity tiles, a trend chart and a findings list.
+  vmaas(ctx, x, y, w, h, accent) {
+    ctx.fillStyle = "#0F1524";
+    ctx.fillRect(x, y, w, h);
+    const sev = [
+      ["Critical", "#E5484D", "12"],
+      ["High", "#F76B15", "48"],
+      ["Medium", "#F2C94C", "131"],
+      ["Low", "#3E9BFF", "306"],
+    ];
+    const tw = (w - 60 - 3 * 18) / 4;
+    ctx.textBaseline = "alphabetic";
+    sev.forEach(([label, color, n], i) => {
+      const tx = x + 30 + i * (tw + 18);
+      bar(ctx, tx, y + 28, tw, 120, "#182036", 14);
+      bar(ctx, tx, y + 28, 6, 120, color, 3);
+      ctx.fillStyle = "#9AA5BF";
+      ctx.font = `500 21px ${BODY}`;
+      ctx.fillText(label, tx + 24, y + 66);
+      ctx.fillStyle = "#FFFFFF";
+      ctx.font = `700 46px ${DISPLAY}`;
+      ctx.fillText(n, tx + 24, y + 124);
+    });
+    // stacked risk bars
+    const cy = y + 180, ch = h - 210, cw = w * 0.56;
+    bar(ctx, x + 30, cy, cw, ch, "#182036", 14);
+    for (let i = 0; i < 12; i++) {
+      const bx = x + 60 + i * ((cw - 60) / 12);
+      const total = 60 + ((i * 37) % 130) + i * 6;
+      let top = cy + ch - 30;
+      [["#3E9BFF", 0.45], ["#F2C94C", 0.3], ["#F76B15", 0.17], [accent, 0.08]].forEach(([c, f]) => {
+        const hh = total * f;
+        ctx.fillStyle = c;
+        ctx.fillRect(bx, top - hh, 22, hh);
+        top -= hh;
+      });
+    }
+    // findings list
+    const lx = x + 50 + cw, lw = w - cw - 80;
+    for (let i = 0; i < 6; i++) {
+      const ly = cy + i * ((ch - 6) / 6);
+      bar(ctx, lx, ly, lw, ch / 6 - 12, "#182036", 10);
+      bar(ctx, lx + 16, ly + 18, 12, 12, sev[i % 4][1], 6);
+      bar(ctx, lx + 42, ly + 19, lw * (0.65 - (i % 3) * 0.12), 10, "#3A4560");
+    }
+  },
+
+  // Log stream with a fired alert.
+  shieldguard(ctx, x, y, w, h, accent) {
+    ctx.fillStyle = "#0C1210";
+    ctx.fillRect(x, y, w, h);
+    ctx.font = `500 20px ${BODY}`;
+    ctx.textBaseline = "middle";
+    const levels = [["INFO", "#5C7A6E"], ["INFO", "#5C7A6E"], ["WARN", "#F2C94C"], ["INFO", "#5C7A6E"], ["ERROR", "#E5484D"], ["INFO", "#5C7A6E"], ["INFO", "#5C7A6E"], ["WARN", "#F2C94C"], ["INFO", "#5C7A6E"], ["ERROR", "#E5484D"], ["INFO", "#5C7A6E"]];
+    levels.forEach(([lv, c], i) => {
+      const ly = y + 40 + i * 50;
+      ctx.fillStyle = "#3D5249";
+      ctx.fillText(`10:42:${String(10 + i * 3).padStart(2, "0")}`, x + 30, ly);
+      ctx.fillStyle = c;
+      ctx.fillText(lv, x + 150, ly);
+      bar(ctx, x + 240, ly - 5, (w - 300) * (0.35 + ((i * 29) % 50) / 100), 10, "#1E2B26");
+    });
+    // alert card
+    const aw = 420, ax = x + w - aw - 34, ay = y + 40;
+    ctx.save();
+    ctx.shadowColor = "rgba(0,0,0,0.5)";
+    ctx.shadowBlur = 30;
+    rr(ctx, ax, ay, aw, 170, 16);
+    ctx.fillStyle = "#15201B";
+    ctx.fill();
+    ctx.restore();
+    ctx.strokeStyle = accent;
+    ctx.lineWidth = 2;
+    rr(ctx, ax, ay, aw, 170, 16);
+    ctx.stroke();
+    bar(ctx, ax + 24, ay + 26, 120, 34, accent, 17);
+    ctx.fillStyle = "#06120C";
+    ctx.font = `700 19px ${BODY}`;
+    ctx.fillText("Alert fired", ax + 38, ay + 44);
+    ctx.fillStyle = "#E6F2EC";
+    ctx.font = `700 28px ${DISPLAY}`;
+    ctx.fillText("5 failed logins in 1 min", ax + 24, ay + 98);
+    bar(ctx, ax + 24, ay + 132, aw * 0.55, 10, "#2D3F37");
+  },
+
+  // Workshop job board: columns of job cards.
+  autorox(ctx, x, y, w, h, accent) {
+    ctx.fillStyle = "#F6F4EF";
+    ctx.fillRect(x, y, w, h);
+    const cols = ["Checked in", "In service", "Ready"];
+    const cw = (w - 80) / 3;
+    ctx.textBaseline = "middle";
+    cols.forEach((c, i) => {
+      const cx = x + 20 + i * (cw + 20);
+      ctx.fillStyle = "#3D3A33";
+      ctx.font = `600 24px ${BODY}`;
+      ctx.fillText(c, cx + 6, y + 40);
+      const n = [3, 4, 2][i];
+      for (let j = 0; j < n; j++) {
+        const cy = y + 72 + j * 120;
+        bar(ctx, cx, cy, cw, 104, "#FFFFFF", 12);
+        bar(ctx, cx, cy, 6, 104, i === 1 ? accent : i === 2 ? "#2BB673" : "#B9B3A6", 3);
+        ctx.fillStyle = "#1B2130";
+        ctx.font = `700 22px ${DISPLAY}`;
+        ctx.fillText(`MP 09 ${["AB", "CK", "DT", "ZX"][(i + j) % 4]} ${1200 + i * 311 + j * 87}`, cx + 22, cy + 32);
+        bar(ctx, cx + 22, cy + 58, cw * 0.6, 10, "#DDD8CC");
+        bar(ctx, cx + 22, cy + 78, cw * 0.4, 10, "#ECE8DF");
+      }
+    });
+  },
+
+  // Product grid with filters.
+  shop(ctx, x, y, w, h, accent) {
+    ctx.fillStyle = "#FFFFFF";
+    ctx.fillRect(x, y, w, h);
+    ctx.fillStyle = "#F4F2F8";
+    ctx.fillRect(x, y, 220, h);
+    for (let i = 0; i < 8; i++) {
+      bar(ctx, x + 24, y + 34 + i * 44, 18, 18, i < 2 ? accent : "#D6D1E3", 4);
+      bar(ctx, x + 54, y + 38 + i * 44, 110 - (i % 3) * 20, 10, "#C9C3D9");
+    }
+    const gx = x + 250, gw = w - 280;
+    bar(ctx, gx, y + 24, gw, 44, "#F4F2F8", 22);
+    const cw = (gw - 2 * 20) / 3;
+    const palette = ["#E9E1F9", "#FCE7D6", "#DDF1EA", "#E3ECFB", "#FBE1E8", "#EFEAD8"];
+    for (let r = 0; r < 2; r++) {
+      for (let c = 0; c < 3; c++) {
+        const px = gx + c * (cw + 20), py = y + 92 + r * 260;
+        bar(ctx, px, py, cw, 170, palette[r * 3 + c], 14);
+        bar(ctx, px, py + 186, cw * 0.75, 12, "#CFCAD9");
+        ctx.fillStyle = "#1B2130";
+        ctx.font = `700 24px ${DISPLAY}`;
+        ctx.textBaseline = "middle";
+        ctx.fillText(`₹${(1499 + r * 1200 + c * 350).toLocaleString("en-IN")}`, px, py + 226);
+      }
+    }
+    bar(ctx, gx + gw - 150, y + 26, 140, 40, accent, 20);
+  },
+
   // Notes app: sections on the left, a note filed automatically on the right.
   notes(ctx, x, y, w, h, accent) {
     ctx.fillStyle = "#FFFFFF";

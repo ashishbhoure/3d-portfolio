@@ -1,42 +1,38 @@
+import { lazy, Suspense, useEffect } from "react";
+import { BrowserRouter, Routes, Route, Outlet, Navigate, useLocation } from "react-router-dom";
 import Nav from "./components/Nav";
-import Hero from "./components/Hero";
-import { Work, Collaborations, Archive, Experience, Skills } from "./components/Sections";
-import Contact from "./components/Contact";
-import portrait from "./assets/ashish.webp";
+import Home from "./pages/Home";
 import { profile } from "./data";
 
-function About() {
-  return (
-    <section className="section about" aria-labelledby="about-title">
-      <img className="about-photo" src={portrait} alt="Ashish Bhoure" width="600" height="832" loading="lazy" />
-      <div>
-        <h2 id="about-title">About me</h2>
-        <p>
-          I like small, sharp tools: a screenshot app that saves ten clicks, a converter that lives in
-          the right-click menu, a search page that answers the question you actually had. Most of my
-          work is TypeScript end to end, React on the front, Node on the back, Electron when it needs
-          to live on the desktop.
-        </p>
-        <p>
-          Since 2023 I have been freelancing, building web apps and admin panels for small businesses
-          and shipping my own products alongside. I finished an integrated M.Tech in Information
-          Technology at DAVV, Indore in 2025.
-        </p>
-      </div>
-    </section>
-  );
+const Work = lazy(() => import("./pages/Work"));
+const ProjectDetail = lazy(() => import("./pages/ProjectDetail"));
+const About = lazy(() => import("./pages/About"));
+const Resume = lazy(() => import("./pages/Resume"));
+const ContactPage = lazy(() => import("./pages/ContactPage"));
+const NotFound = lazy(() => import("./pages/NotFound"));
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
 }
 
 function Footer() {
   return (
     <footer className="footer">
-      <p>© {new Date().getFullYear()} Ashish Bhoure</p>
+      <p>© {new Date().getFullYear()} Ashish Bhoure, {profile.location}</p>
       <ul>
         <li>
-          <a href={profile.github} target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href={profile.github} target="_blank" rel="noopener noreferrer">
+            GitHub
+          </a>
         </li>
         <li>
-          <a href={profile.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href={profile.linkedin} target="_blank" rel="noopener noreferrer">
+            LinkedIn
+          </a>
         </li>
         <li>
           <a href={`mailto:${profile.email}`}>Email</a>
@@ -46,24 +42,41 @@ function Footer() {
   );
 }
 
-export default function App() {
+function Layout() {
   return (
     <>
       <a className="skip-link" href="#main">
         Skip to content
       </a>
+      <ScrollToTop />
       <Nav />
       <main id="main">
-        <Hero />
-        <Work />
-        <Collaborations />
-        <Archive />
-        <About />
-        <Experience />
-        <Skills />
-        <Contact />
+        <Suspense fallback={<div className="page-loading" aria-busy="true" />}>
+          <Outlet />
+        </Suspense>
       </main>
       <Footer />
     </>
+  );
+}
+
+export default function App() {
+  return (
+    <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+      <Routes>
+        <Route element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="work" element={<Work />} />
+          <Route path="work/:id" element={<ProjectDetail />} />
+          <Route path="about" element={<About />} />
+          <Route path="resume" element={<Resume />} />
+          <Route path="contact" element={<ContactPage />} />
+          {/* old URLs from the previous site */}
+          <Route path="projects" element={<Navigate to="/work" replace />} />
+          <Route path="home" element={<Navigate to="/" replace />} />
+          <Route path="*" element={<NotFound />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
