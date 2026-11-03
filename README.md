@@ -1,15 +1,19 @@
 # Ashish Bhoure, portfolio
 
-Personal site with pages for home, work (with a case-study page per project), services, about, résumé and contact.
+Personal site for Ashish Bhoure: Home, Work (with a case study per project), Services, Stack, About, Notes, Résumé and Contact.
 
-The hero is a small Three.js scene: one floating app window per featured project, painted onto a
-canvas texture at runtime (screenshots where they exist, drawn mock-ups otherwise). It tilts with
-the pointer and clicking a window opens that project's case study. The 3D code is lazy-loaded, skipped
-without WebGL, and holds still for people who prefer reduced motion.
+Interactive pieces (all respect reduced motion and fall back without WebGL):
+
+- **Home:** a 3D desk with throwable tech tiles; the monitor cycles project screens and opens the case study on click. Flip-card services, a 3D project carousel, a process path that draws on scroll, and live GitHub activity.
+- **Stack:** a 3D keyboard where each key is a skill (click or type), plus a physics playground (matter-js).
+- **About:** an ID badge on a verlet-rope lanyard you can swing and flip, and a time-zone globe.
+- **Contact:** the enquiry form plus a working terminal (, , ).
+
+three.js and matter-js load only on the pages that use them ().
 
 ## Stack
 
-React 18, Vite 5, @react-three/fiber + three, framer-motion, EmailJS. Plain CSS with design
+React 18, Vite 5, three.js, matter-js, framer-motion, EmailJS. Plain CSS with design
 tokens and a light/dark theme.
 
 ## Run

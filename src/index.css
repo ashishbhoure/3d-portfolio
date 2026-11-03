@@ -1,14 +1,24 @@
 /* ---------- Tokens ---------- */
 :root {
-  --bg: #e8ebef;
-  --surface: #f6f7f9;
-  --ink: #1b2130;
-  --ink-soft: #4d5568;
-  --line: #ccd2db;
-  --cobalt: #2e4bff;
+  /* light theme (dark is the default, see below) */
+  --bg: #eceef5;
+  --surface: #f8f9fc;
+  --surface-2: #e3e6f0;
+  --ink: #161a2e;
+  --ink-soft: #4f5672;
+  --line: #cfd4e3;
+  --cobalt: #3d5cf5;
+  --violet: #8a4dfa;
+  --mint: #13a35b;
+  --pink: #e8457f;
   --cobalt-ink: #ffffff;
   --amber: #ffb01f;
-  --focus: #2e4bff;
+  --on-amber: #1b1406;
+  --focus: #3d5cf5;
+  --r-sm: 10px;
+  --r-md: 14px;
+  --r-lg: 22px;
+  --r-xl: 30px;
 
   --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
   --font-body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
@@ -28,14 +38,18 @@
 }
 
 :root[data-theme="dark"] {
-  --bg: #141824;
-  --surface: #1c2131;
-  --ink: #e7eaf1;
-  --ink-soft: #a3abbd;
-  --line: #2f3648;
-  --cobalt: #7b8fff;
-  --cobalt-ink: #0f1430;
-  --focus: #9fb0ff;
+  --bg: #0e1020;
+  --surface: #171a2e;
+  --surface-2: #20243d;
+  --ink: #eef0f8;
+  --ink-soft: #9ba3c0;
+  --line: #2c3150;
+  --cobalt: #4c6bff;
+  --violet: #9b5cff;
+  --mint: #3ddc97;
+  --pink: #ff5c9a;
+  --cobalt-ink: #ffffff;
+  --focus: #7b8fff;
   color-scheme: dark;
 }
 
@@ -132,7 +146,7 @@ a {
   justify-content: center;
   min-height: 48px;
   padding: 0 22px;
-  border-radius: 999px;
+  border-radius: var(--r-md);
   font: 600 var(--step-0) / 1 var(--font-body);
   text-decoration: none;
   border: 2px solid transparent;
@@ -232,7 +246,7 @@ a {
   place-items: center;
   width: 44px;
   height: 44px;
-  border-radius: 50%;
+  border-radius: 30%;
   border: 0;
   background: transparent;
   color: var(--ink);
@@ -451,7 +465,7 @@ a {
 }
 .tags li {
   padding: 4px 12px;
-  border-radius: 999px;
+  border-radius: var(--r-md);
   border: 1px solid var(--line);
   font-size: var(--step--1);
   font-weight: 500;
@@ -586,7 +600,7 @@ a {
   top: 6px;
   width: 14px;
   height: 14px;
-  border-radius: 50%;
+  border-radius: 30%;
   background: var(--bg);
   border: 3px solid var(--cobalt);
 }
@@ -822,7 +836,7 @@ a {
 .filter {
   min-height: 40px;
   padding: 0 16px;
-  border-radius: 999px;
+  border-radius: var(--r-md);
   border: 1.5px solid var(--line);
   background: transparent;
   color: var(--ink);

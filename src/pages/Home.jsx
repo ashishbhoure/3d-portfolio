@@ -1,20 +1,8 @@
 import { Link } from "react-router-dom";
 import Hero from "../components/Hero";
-import {
-  ProjectRow,
-  JobTimeline,
-  ContactBand,
-  Stats,
-  ServiceList,
-  Steps,
-  Testimonials,
-  usePageTitle,
-} from "../components/ui";
-import { projects, clients, team } from "../data";
-
-const homePicks = ["vmaas", "repoatlas", "lumishot", "shieldguard"].map((id) =>
-  projects.find((p) => p.id === id)
-);
+import { ContactBand, Stats, Testimonials, usePageTitle } from "../components/ui";
+import { FlipCards, ProjectCarousel, ProcessPath, Activity, Hint } from "../components/v2/Interactive";
+import { clients, nowItems } from "../data";
 
 export default function Home() {
   usePageTitle(
@@ -26,11 +14,10 @@ export default function Home() {
     <>
       <Hero />
 
-      <section className="section section--flush proof" aria-label="At a glance">
-        <Stats />
-        <div className="clients">
-          <h2>People I&apos;ve built for</h2>
-          <ul>
+      <section className="proof-strip" aria-label="At a glance">
+        <div className="proof-inner">
+          <Stats />
+          <ul className="clients" aria-label="People I've built for">
             {clients.map((c) => (
               <li key={c}>{c}</li>
             ))}
@@ -38,70 +25,76 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section" aria-labelledby="home-services">
-        <header className="section-head section-head--split">
-          <div>
-            <h2 id="home-services">What I can build for you</h2>
-            <p>Freelance projects for startups and businesses, from a first version to a growing product.</p>
-          </div>
-          <Link className="ext-link" to="/services">
-            All services and how I work
-          </Link>
+      <section className="section" aria-labelledby="now-t">
+        <header className="section-head">
+          <h2 id="now-t">What I&apos;m doing now</h2>
         </header>
-        <ServiceList limit={6} />
-      </section>
-
-      <section className="section" aria-labelledby="home-work">
-        <header className="section-head section-head--split">
-          <div>
-            <h2 id="home-work">Selected work</h2>
-            <p>Platforms I built at work, and products I build on my own time.</p>
+        <div className="now">
+          <div className="panel">
+            <h3>This month</h3>
+            <ul className="now-list">
+              {nowItems.map((n) => (
+                <li key={n}>{n}</li>
+              ))}
+            </ul>
           </div>
-          <Link className="ext-link" to="/work">
-            All projects
-          </Link>
-        </header>
-        <div className="projects">
-          {homePicks.map((p) => (
-            <ProjectRow key={p.id} project={p} />
-          ))}
+          <Activity />
         </div>
       </section>
 
-      <section className="section" aria-labelledby="home-steps">
-        <header className="section-head">
-          <h2 id="home-steps">How a project runs</h2>
-          <p>A demo you can click every week, and a written plan before any money changes hands.</p>
+      <section className="section" aria-labelledby="svc-t">
+        <header className="section-head section-head--split">
+          <div>
+            <h2 id="svc-t">What I can build for you</h2>
+            <p>Hover a card, or tap it, to flip it and see what&apos;s included.</p>
+          </div>
+          <Link className="ext-link" to="/services">
+            All services
+          </Link>
         </header>
-        <Steps />
+        <FlipCards limit={6} />
+      </section>
+
+      <section className="section" aria-labelledby="work-t">
+        <header className="section-head section-head--split">
+          <div>
+            <h2 id="work-t">Selected work</h2>
+            <p>Platforms I built at work and products I ship myself.</p>
+          </div>
+          <Hint>Drag to spin, click the front card</Hint>
+        </header>
+        <ProjectCarousel />
+      </section>
+
+      <section className="section" aria-labelledby="proc-t">
+        <header className="section-head">
+          <h2 id="proc-t">How a project runs</h2>
+          <p>The path draws itself as you scroll. Every project follows the same five steps.</p>
+        </header>
+        <ProcessPath />
       </section>
 
       <Testimonials />
 
-      <section className="section team-teaser" aria-labelledby="home-team">
-        <div>
-          <h2 id="home-team">Need more than one developer?</h2>
-          <p>{team.intro}</p>
-          <p className="team-teaser-roles">
-            Design, frontend, backend, QA and DevOps, under one plan.
-          </p>
-          <Link className="ext-link" to="/services">
-            See how the team works
+      <section className="section explore" aria-labelledby="ex-t">
+        <header className="section-head">
+          <h2 id="ex-t">Play with it</h2>
+          <p>Every page has something to touch.</p>
+        </header>
+        <div className="explore-grid">
+          <Link className="explore-card tilt" to="/stack">
+            <b>3D keyboard</b>
+            <span>Press a key to see where I&apos;ve used each skill.</span>
+          </Link>
+          <Link className="explore-card tilt" to="/about">
+            <b>ID badge and globe</b>
+            <span>Swing my badge, then check our time-zone overlap.</span>
+          </Link>
+          <Link className="explore-card tilt" to="/contact">
+            <b>Terminal</b>
+            <span>Type commands to explore the site.</span>
           </Link>
         </div>
-      </section>
-
-      <section className="section" aria-labelledby="home-exp">
-        <header className="section-head section-head--split">
-          <div>
-            <h2 id="home-exp">Where I work</h2>
-            <p>Four years shipping production MERN applications.</p>
-          </div>
-          <Link className="ext-link" to="/about">
-            Full experience
-          </Link>
-        </header>
-        <JobTimeline compact />
       </section>
 
       <ContactBand />

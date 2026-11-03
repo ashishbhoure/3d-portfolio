@@ -99,7 +99,7 @@ export function ProjectRow({ project: p }) {
 /** Compact card used on the work page grid. The whole card is the link. */
 export function ProjectCard({ project: p }) {
   return (
-    <li className="card" style={{ "--accent": p.pane.accent }}>
+    <li className="card tilt" style={{ "--accent": p.pane.accent }}>
       <div className="card-visual">
         <PanePreview project={p} />
       </div>
@@ -202,6 +202,11 @@ export function ContactBand({ title = "Have a project in mind?" }) {
   return (
     <section className="section">
       <div className="band">
+        <svg className="plane plane--band" viewBox="0 0 220 180" aria-hidden="true">
+          <path d="M8 82 L210 8 L150 170 L104 112 Z" fill="#eef0f8" />
+          <path d="M104 112 L210 8 L120 140 Z" fill="#b9c2e8" />
+          <path d="M104 112 L120 140 L98 160 Z" fill="#8d97c6" />
+        </svg>
         <div>
           <Availability />
           <h2>{title}</h2>

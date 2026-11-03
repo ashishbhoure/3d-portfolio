@@ -1,8 +1,6 @@
 import {
   PageHeader,
   Availability,
-  ServiceList,
-  Steps,
   Team,
   Testimonials,
   Faq,
@@ -10,6 +8,7 @@ import {
   usePageTitle,
 } from "../components/ui";
 import { Link } from "react-router-dom";
+import { FlipCards, ProcessPath } from "../components/v2/Interactive";
 import { engagements } from "../data";
 
 export default function Services() {
@@ -40,16 +39,17 @@ export default function Services() {
       <section className="section" aria-labelledby="s-what">
         <header className="section-head">
           <h2 id="s-what">What I can build for you</h2>
+          <p>Hover a card, or tap it, to flip it and see what's included.</p>
         </header>
-        <ServiceList />
+        <FlipCards />
       </section>
 
       <section className="section" aria-labelledby="s-how">
         <header className="section-head">
           <h2 id="s-how">How a project runs</h2>
-          <p>Five steps, the same every time, so you always know what happens next.</p>
+          <p>Five steps, the same every time, so you always know what happens next. The path draws itself as you scroll.</p>
         </header>
-        <Steps />
+        <ProcessPath />
       </section>
 
       <section className="section" aria-labelledby="s-ways">

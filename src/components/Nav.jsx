@@ -5,7 +5,9 @@ import logo from "../assets/logoAB.png";
 const links = [
   { to: "/work", label: "Work" },
   { to: "/services", label: "Services" },
+  { to: "/stack", label: "Stack" },
   { to: "/about", label: "About" },
+  { to: "/notes", label: "Notes" },
   { to: "/resume", label: "Résumé" },
 ];
 

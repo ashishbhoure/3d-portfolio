@@ -411,22 +411,27 @@ export const services = [
 export const steps = [
   {
     title: "Talk",
+    short: "A short call about what you need",
     text: "A short call or chat about what you need, who uses it and when it has to be live.",
   },
   {
-    title: "Plan and estimate",
+    title: "Plan",
+    short: "Scope, price and dates in writing",
     text: "A written scope with screens, milestones, price and dates, so you know what you're paying for.",
   },
   {
-    title: "Design and build",
+    title: "Build",
+    short: "A demo link you can click each week",
     text: "Work in short cycles with a demo link you can click every week. Feedback goes straight in.",
   },
   {
     title: "Launch",
+    short: "Deploy and hand over everything",
     text: "Deployment, domain, analytics and a handover of the code and every account in your name.",
   },
   {
     title: "Support",
+    short: "Fixes and monthly upkeep",
     text: "A bug-fix period after launch, then optional monthly support as the product grows.",
   },
 ];
@@ -491,3 +496,68 @@ export const faqs = [
 export const projectTypes = [...services.map((s) => s.title), "Something else"];
 export const budgets = ["Not sure yet", "Under $1,000", "$1,000 – $5,000", "$5,000 – $15,000", "$15,000+"];
 export const timelines = ["As soon as possible", "Within a month", "1 – 3 months", "Flexible"];
+
+// ---------------------------------------------------------------------------
+// v2 interactive content
+// ---------------------------------------------------------------------------
+
+/** 3D keyboard on the Stack page: one skill per letter key. `cat` drives the playground filters. */
+export const keySkills = {
+  R: { name: "React", cat: "front", c: "#4c6bff", at: "3Columns, DevSecRoot, own products", projects: ["vmaas", "shieldguard", "lumishot", "skillverse"], note: "Hooks, Redux and Context; lazy loading and list virtualisation for big screens." },
+  N: { name: "Node.js", cat: "back", c: "#3ddc97", at: "3Columns, DevSecRoot", projects: ["vmaas", "shieldguard", "autorox", "notes"], note: "REST services with validation middleware, structured logging and clean error handling." },
+  M: { name: "MongoDB", cat: "back", c: "#2bb673", at: "3Columns, DevSecRoot", projects: ["vmaas", "autorox", "ecommerce", "notes"], note: "Schema design and aggregation pipelines tuned for speed." },
+  T: { name: "TypeScript", cat: "front", c: "#4c6bff", at: "Own products", projects: ["repoatlas", "lumishot", "tangerine", "skillverse"], note: "End-to-end types across Next.js, Electron and Vite apps." },
+  E: { name: "Express", cat: "back", c: "#9ba3c0", at: "3Columns, DevSecRoot", projects: ["vmaas", "shieldguard", "autorox", "ecommerce"], note: "Routing, middleware and API structure for multi-tenant platforms." },
+  X: { name: "Next.js", cat: "front", c: "#eef0f8", at: "Own products, team work", projects: ["repoatlas"], note: "Server rendering and API routes; also used on the 21 Spades team project." },
+  D: { name: "Docker", cat: "cloud", c: "#4c6bff", at: "3Columns, own products", projects: ["repoatlas"], note: "Containerised development and deploys with docker-compose." },
+  A: { name: "AWS", cat: "cloud", c: "#ffb01f", at: "3Columns", projects: [], note: "EC2 and S3 deployments for production apps." },
+  J: { name: "Jenkins", cat: "cloud", c: "#ff5c9a", at: "DevSecRoot", projects: [], note: "CI/CD pipelines that build, test and ship releases." },
+  L: { name: "Elasticsearch", cat: "back", c: "#ffb01f", at: "Work", projects: ["shieldguard"], note: "Log search and alert queries, from simple to complex." },
+  P: { name: "Prisma", cat: "back", c: "#eef0f8", at: "Own products", projects: ["repoatlas"], note: "Typed database access and migrations." },
+  K: { name: "Redux", cat: "front", c: "#9b5cff", at: "3Columns, DevSecRoot", projects: ["vmaas", "ecommerce"], note: "Predictable state for large dashboards." },
+  I: { name: "Electron", cat: "desk", c: "#9b5cff", at: "Own products", projects: ["lumishot", "tangerine"], note: "Tray apps, global hotkeys, native modules and installers." },
+  F: { name: "FFmpeg", cat: "desk", c: "#ff8a1f", at: "Own products", projects: ["tangerine"], note: "Audio, video and GIF conversion pipelines." },
+  G: { name: "Git", cat: "cloud", c: "#ff5c9a", at: "Everywhere", projects: [], note: "GitHub, GitLab and Bitbucket flows with reviewed pull requests." },
+  S: { name: "Tailwind", cat: "front", c: "#3ddc97", at: "Own and team projects", projects: ["notes"], note: "Fast, consistent styling with design tokens." },
+  Z: { name: "Zustand", cat: "front", c: "#ffb01f", at: "Own and team projects", projects: ["notes"], note: "Light state for apps that don't need Redux." },
+  W: { name: "WebSockets", cat: "back", c: "#4c6bff", at: "Team projects", projects: [], note: "Real-time chat and live updates." },
+  O: { name: "OAuth", cat: "back", c: "#3ddc97", at: "3Columns", projects: ["vmaas"], note: "Sign-in with OAuth and JWT, plus role-based access control." },
+  Y: { name: "Playwright", cat: "cloud", c: "#2bb673", at: "Own products", projects: ["repoatlas"], note: "End-to-end tests that run before every release." },
+  U: { name: "Material UI", cat: "front", c: "#4c6bff", at: "Work and client projects", projects: [], note: "Also Ant Design, Bootstrap and Styled Components." },
+  H: { name: "HTML/CSS", cat: "front", c: "#ff8a1f", at: "Everywhere", projects: [], note: "Accessible, responsive markup as the base of every UI." },
+  C: { name: "CI/CD", cat: "cloud", c: "#9b5cff", at: "3Columns, DevSecRoot", projects: [], note: "Automated build, test and deploy steps." },
+  V: { name: "Vite", cat: "front", c: "#9b5cff", at: "Own products", projects: ["skillverse", "lumishot"], note: "Fast builds for React and Electron front ends." },
+  Q: { name: "Jira", cat: "cloud", c: "#4c6bff", at: "3Columns, DevSecRoot", projects: [], note: "Agile sprints with QA and design." },
+  B: { name: "Ant Design", cat: "front", c: "#e5484d", at: "Client and team projects", projects: [], note: "Component library used for Umiya Biotech and 21 Spades." },
+};
+
+export const skillAreas = { front: "Frontend", back: "Backend and data", cloud: "Cloud and tooling", desk: "Desktop" };
+
+/** Time-zone globe on the About page. */
+export const homeCity = { n: "Indore", tz: "Asia/Kolkata", lat: 22.72, lon: 75.86 };
+export const cities = [
+  { n: "London", tz: "Europe/London", lat: 51.5, lon: -0.13 },
+  { n: "New York", tz: "America/New_York", lat: 40.7, lon: -74 },
+  { n: "San Francisco", tz: "America/Los_Angeles", lat: 37.8, lon: -122.4 },
+  { n: "Berlin", tz: "Europe/Berlin", lat: 52.5, lon: 13.4 },
+  { n: "Dubai", tz: "Asia/Dubai", lat: 25.2, lon: 55.3 },
+  { n: "Singapore", tz: "Asia/Singapore", lat: 1.35, lon: 103.8 },
+  { n: "Sydney", tz: "Australia/Sydney", lat: -33.9, lon: 151.2 },
+];
+
+/** "What I'm doing now" panel on the home page. Keep it current. */
+export const nowItems = [
+  "Taking on freelance web and desktop projects",
+  "Building production MERN apps as a full-stack developer at 3Columns",
+  "Working on Lumishot, a screenshot app for Windows",
+  "Writing up how I tune MongoDB aggregation pipelines",
+];
+
+/** Notes page. `status: "planned"` shows as coming soon; add `href` once a post is live. */
+export const notes = [
+  { tag: "MongoDB", title: "Making aggregation pipelines fast", text: "Indexes, $match placement and when to precompute, with before and after timings.", mins: 6, status: "planned" },
+  { tag: "Security", title: "Role-based access in a MERN app", text: "JWT, refresh tokens and permission checks that live in one place.", mins: 8, status: "planned" },
+  { tag: "Electron", title: "Shipping a Windows app with a real installer", text: "Global hotkeys, tray icons, code signing and auto-updates for Lumishot.", mins: 7, status: "planned" },
+  { tag: "React", title: "Rendering 10,000 rows without stalling", text: "List virtualisation, memoisation and when not to bother.", mins: 5, status: "planned" },
+  { tag: "Three.js", title: "How this site's 3D desk works", text: "A throwable tile with a spring, a raycaster and sixty lines of physics.", mins: 6, status: "planned" },
+];

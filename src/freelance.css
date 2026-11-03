@@ -13,7 +13,7 @@
   align-items: center;
   gap: 10px;
   padding: 6px 14px 6px 12px;
-  border-radius: 999px;
+  border-radius: var(--r-md);
   background: color-mix(in srgb, var(--green) 12%, transparent);
   color: var(--ink);
   font-size: 0.95rem;
@@ -23,7 +23,7 @@
 .availability-dot {
   width: 9px;
   height: 9px;
-  border-radius: 50%;
+  border-radius: 3px;
   background: var(--green);
   box-shadow: 0 0 0 0 color-mix(in srgb, var(--green) 60%, transparent);
   animation: pulse 2.4s ease-out infinite;
@@ -52,7 +52,7 @@
 /* Nav call to action */
 .nav-links a.nav-cta {
   padding: 8px 16px;
-  border-radius: 999px;
+  border-radius: var(--r-md);
   background: var(--cobalt);
   color: var(--cobalt-ink);
   font-weight: 600;
@@ -194,7 +194,7 @@
   place-items: center;
   width: 44px;
   height: 44px;
-  border-radius: 50%;
+  border-radius: 3px;
   background: var(--ink);
   color: var(--bg);
   font: 700 1.1rem var(--font-display);
