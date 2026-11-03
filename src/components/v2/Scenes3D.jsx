@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { hasWebGL } from "../../three/env";
-import portrait from "../../assets/ashish.webp";
+import portrait from "../../assets/ashish-badge.webp";
 import { projects, keySkills, skillAreas, profile, homeCity, cities } from "../../data";
 import { Hint } from "./Interactive";
 
