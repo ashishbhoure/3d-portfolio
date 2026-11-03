@@ -7,9 +7,9 @@ Interactive pieces (all respect reduced motion and fall back without WebGL):
 - **Home:** a 3D desk with throwable tech tiles; the monitor cycles project screens and opens the case study on click. Flip-card services, a 3D project carousel, a process path that draws on scroll, and live GitHub activity.
 - **Stack:** a 3D keyboard where each key is a skill (click or type), plus a physics playground (matter-js).
 - **About:** an ID badge on a verlet-rope lanyard you can swing and flip, and a time-zone globe.
-- **Contact:** the enquiry form plus a working terminal (, , ).
+- **Contact:** the enquiry form plus a working terminal (`help`, `projects`, `open <name>`).
 
-three.js and matter-js load only on the pages that use them ().
+three.js and matter-js load only on the pages that use them (`src/three/`).
 
 ## Stack
 
