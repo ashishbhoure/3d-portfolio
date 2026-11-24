@@ -176,6 +176,42 @@ export const projects = [
     pane: { mock: "tangerine", accent: "#FF8A1F" },
   },
   {
+    id: "lyricreel",
+    category: "product",
+    name: "Lyric Reel Maker",
+    kind: "Browser app",
+    summary:
+      "Turn photos into illustrated vertical reels with your own song and synced lyrics. Everything runs in the browser, so nothing is uploaded.",
+    points: [
+      "Seven illustration styles (cartoon, sketch, comic, watercolor, pop art, neon) drawn on canvas",
+      "Pick the song section from a waveform; lyrics by paste, LRC, tap-to-sync or local Whisper transcription",
+      "Per-photo zoom, pan and timing, transitions and colour grading, exported as MP4 or WebM",
+    ],
+    stack: ["JavaScript", "Canvas", "Web Audio", "WebCodecs", "Whisper"],
+    links: [],
+    note: "Runs locally, repository not public",
+    pane: { mock: "lyricreel", accent: "#FF4F9A" },
+  },
+  {
+    id: "wishsite",
+    category: "product",
+    name: "wish-site",
+    kind: "Claude Code skill and website template",
+    summary:
+      "Makes a cute, animated, phone-friendly celebration website for someone special in minutes: pick a theme and a character, add photos and messages, and deploy to any static host.",
+    points: [
+      "Gift-box intro, popping balloons, number candles you can blow out through the mic, 3D carousel and draggable polaroids",
+      "A three.js 3D photo world you can drag, pinch and tap, with 7 themes and every word editable",
+      "Ships as a Claude Code skill: describe the site and it fills the config, resizes photos and previews it",
+    ],
+    stack: ["JavaScript", "three.js", "Node.js", "sharp", "Claude Code skills"],
+    links: [
+      { label: "Live demo", href: "https://ashishbhoure.github.io/wish-site-demo/" },
+      { label: "Source", href: "https://github.com/ashishbhoure/wish-site" },
+    ],
+    pane: { mock: "wishsite", accent: "#FF8FB1" },
+  },
+  {
     id: "notes",
     category: "product",
     name: "Smart Notes",
@@ -315,12 +351,13 @@ export const practices = [
 ];
 
 export const skills = [
-  { group: "Frontend", items: ["React", "Next.js", "TypeScript", "JavaScript (ES6+)", "HTML5", "CSS3", "Three.js"] },
+  { group: "Frontend", items: ["React", "Next.js", "TypeScript", "JavaScript (ES6+)", "HTML5", "CSS3", "Three.js", "Canvas and WebGL"] },
   { group: "UI and styling", items: ["Tailwind CSS", "Material UI", "Ant Design", "Bootstrap", "Styled Components"] },
   { group: "State and data fetching", items: ["Redux", "Context API", "Zustand", "Axios", "WebSockets", "Apollo Client"] },
   { group: "Backend", items: ["Node.js", "Express", "REST APIs", "JWT", "OAuth", "RBAC"] },
   { group: "Databases and search", items: ["MongoDB", "Mongoose", "Aggregation pipelines", "MySQL", "Prisma", "Elasticsearch"] },
   { group: "Desktop", items: ["Electron", "Native modules", "FFmpeg", "sharp"] },
+  { group: "Media and AI", items: ["Web Audio API", "WebCodecs", "Whisper (in-browser)", "Groq", "Claude Code skills"] },
   { group: "Cloud and DevOps", items: ["AWS EC2 and S3", "Docker", "Jenkins", "CI/CD", "Vercel"] },
   { group: "Tools", items: ["Git", "GitHub", "GitLab", "Bitbucket", "Postman", "Swagger", "Jira", "Playwright", "Vitest"] },
 ];
@@ -550,6 +587,7 @@ export const nowItems = [
   "Taking on freelance web and desktop projects",
   "Building production MERN apps as a full-stack developer at 3Columns",
   "Working on Lumishot, a screenshot app for Windows",
+  "Shipping small creative tools: Lyric Reel Maker and the wish-site skill",
   "Writing up how I tune MongoDB aggregation pipelines",
 ];
 

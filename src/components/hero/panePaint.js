@@ -119,6 +119,62 @@ const mocks = {
     }
   },
 
+  // Vertical reel preview with a lyric caption and waveform.
+  lyricreel(ctx, x, y, w, h, accent) {
+    ctx.fillStyle = "#14101F";
+    ctx.fillRect(x, y, w, h);
+    const pw = h * 0.5, px = x + 90, py = y + 40, ph = h - 80;
+    const g = ctx.createLinearGradient(px, py, px + pw, py + ph);
+    g.addColorStop(0, accent);
+    g.addColorStop(1, "#7C5CFF");
+    rr(ctx, px, py, pw, ph, 26);
+    ctx.fillStyle = g;
+    ctx.fill();
+    bar(ctx, px + 30, py + ph - 150, pw - 60, 30, "rgba(255,255,255,0.92)", 10);
+    bar(ctx, px + 60, py + ph - 100, pw - 120, 22, "rgba(255,255,255,0.6)", 8);
+    const wx = px + pw + 60, ww = x + w - wx - 60;
+    for (let i = 0; i < 26; i++) {
+      const bh = 30 + ((i * 53) % 90);
+      bar(ctx, wx + (i * ww) / 26, y + h / 2 - bh / 2, Math.max(ww / 26 - 8, 6), bh, i < 11 ? accent : "rgba(255,255,255,0.3)", 4);
+    }
+    for (let i = 0; i < 3; i++) bar(ctx, wx, y + h - 120 + i * 30, ww * (0.9 - i * 0.2), 12, "rgba(255,255,255,0.25)", 6);
+  },
+
+  // Celebration page: balloons over a pastel backdrop with a candle cake.
+  wishsite(ctx, x, y, w, h, accent) {
+    const g = ctx.createLinearGradient(x, y, x, y + h);
+    g.addColorStop(0, "#FFF1F5");
+    g.addColorStop(1, "#FFD9E6");
+    ctx.fillStyle = g;
+    ctx.fillRect(x, y, w, h);
+    const cols = [accent, "#9BE3C5", "#FFD66B", "#B9A7FF"];
+    for (let i = 0; i < 6; i++) {
+      const bx = x + 90 + i * ((w - 180) / 5), by = y + 120 + ((i * 47) % 70);
+      ctx.fillStyle = cols[i % cols.length];
+      ctx.beginPath();
+      ctx.ellipse(bx, by, 36, 46, 0, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.strokeStyle = "rgba(60,40,60,0.35)";
+      ctx.lineWidth = 3;
+      ctx.beginPath();
+      ctx.moveTo(bx, by + 46);
+      ctx.lineTo(bx - 6, by + 120);
+      ctx.stroke();
+    }
+    const cw = 300, cx = x + (w - cw) / 2, cy = y + h - 190;
+    rr(ctx, cx, cy, cw, 120, 20);
+    ctx.fillStyle = "#FFFFFF";
+    ctx.fill();
+    bar(ctx, cx, cy + 30, cw, 22, accent, 10);
+    for (let i = 0; i < 3; i++) {
+      bar(ctx, cx + 70 + i * 80, cy - 46, 14, 46, "#FFFFFF", 4);
+      ctx.fillStyle = "#FFB020";
+      ctx.beginPath();
+      ctx.ellipse(cx + 77 + i * 80, cy - 58, 9, 14, 0, 0, Math.PI * 2);
+      ctx.fill();
+    }
+  },
+
   // Format wheel that opens at the cursor.
   tangerine(ctx, x, y, w, h, accent) {
     ctx.fillStyle = "#FBF7F2";
