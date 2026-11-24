@@ -10,7 +10,7 @@ export const profile = {
   email: "ashishbhoure@gmail.com",
   github: "https://github.com/ashishbhoure",
   linkedin: "https://www.linkedin.com/in/ashishbhoure/",
-  resume: "/Ashish-Bhoure-Resume.pdf",
+  resume: `${import.meta.env.BASE_URL}Ashish-Bhoure-Resume.pdf`,
 };
 
 export const categories = {
